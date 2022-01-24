@@ -3,6 +3,8 @@ module "policies_for_esxi_fc_boot" {
   source   = "./modules/esxi_fc_boot"
   org_moid = module.org_details.org_moid
 
+### Need to add Local_User-Policy, Virtual_KVM-Policy
+
   #IMC Access Policy
   name_of_imc_access_policy        = "${var.name_prefix}-IMC-Access-Policy"
   description_of_imc_access_policy = "IMC Access Policy for ${var.name_prefix}"
