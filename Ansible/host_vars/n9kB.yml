@@ -1,0 +1,45 @@
+---
+vpc_source: "{{ hostvars['n9kB'].ansible_host }}"
+vpc_destination: "{{ hostvars['n9kA'].ansible_host }}"
+vpc_role_priority: "20"
+# NTP Distribution IP for N9K-B in the IB-MGMT VLAN
+IB_MGMT_ntp_dist_IP: "{{ ib_mgmt_ntp_servers[1].ip_address }}{{ ntp_distribution_nm_cidr }}"
+# Interface Lists; more interfaces can be added for additional BW
+#
+mgmt_interface_list:
+  - interface: "Ethernet1/44"
+    description: "Uplink-SW"
+
+peerlink_interface_list:
+  - interface:  "Ethernet1/49"
+    description: "AAD15-NX9k-A:Eth1/49"
+  - interface:  "Ethernet1/50"
+    description: "AAD15-NX9k-A:Eth1/50"
+#
+# Be carefule here; confusing as this is from the FI perspective
+FI_A_interface_list:
+  - interface:  "Ethernet1/51"
+    description: "UCS-6454-A:Eth1/50"
+#  - interface:  "Ethernet1/50"
+#    description: "DV-Pod-2-N9K-B:Eth1/51"
+#
+FI_B_interface_list:
+  - interface:  "Ethernet1/52"
+    description: "UCS-6454-B:Eth1/50"
+#  - interface:  "Ethernet1/50"
+#    description: "DV-Pod-2-N9K-B:Eth1/52"
+#
+
+storage_A_interface_list:
+  - interface:  "Ethernet1/17"
+    description: "AA16-A400-01:e0g"
+  - interface:  "Ethernet1/18"
+    description: "AA16-A400-01:e0h"
+#
+storage_B_interface_list:
+  - interface:  "Ethernet1/19"
+    description: "AA16-A400-02:e0g"
+  - interface:  "Ethernet1/20"
+    description: "AA16-A400-02:e0h"
+#
+all_interfaces: "{{ mgmt_interface_list + peerlink_interface_list + FI_A_interface_list + FI_B_interface_list + storage_A_interface_list + storage_B_interface_list }}"

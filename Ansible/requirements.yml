@@ -1,0 +1,9 @@
+---
+collections:
+  - name: cisco.nxos
+  - name: cisco.intersight
+  - name: netapp.ontap
+  - name: community.vmware
+
+
+# ansible-galaxy collection install -r requirements.yml

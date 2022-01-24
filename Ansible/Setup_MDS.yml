@@ -1,0 +1,11 @@
+---
+# Example Playbook: VLAN configuration using the [ucs] hosts group
+- hosts: mds
+  connection: network_cli
+  gather_facts: no
+  vars_files:
+    - vars/ontap_main.yml
+  roles:
+    ### Configure Nexus Switching
+    #
+    - MDSconfig
