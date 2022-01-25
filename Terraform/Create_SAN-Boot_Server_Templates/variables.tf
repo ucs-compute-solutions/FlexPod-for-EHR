@@ -103,8 +103,10 @@ variable "vlan_for_cimc_access" {
 
 # Local User Policy 
 variable "local_user_name" {
-  default = "Admin"
 }
+variable "local_user_pass" {
+}
+
 
 
 

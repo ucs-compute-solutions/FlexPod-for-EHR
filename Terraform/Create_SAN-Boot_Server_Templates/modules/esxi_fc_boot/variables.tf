@@ -23,9 +23,16 @@ variable "description_of_kvm_policy" {
 }
 
 # Local User Policy 
+
 variable "local_user_name" {
   default = "Admin"
 }
+
+variable "local_user_pass" {
+  default = "C1sco!23"
+
+}
+
 variable "kvm_policy_name" {
 }
 
