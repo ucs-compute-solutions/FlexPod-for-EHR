@@ -101,6 +101,11 @@ variable "vlan_for_cimc_access" {
 }
 
 
+# Local User Policy 
+variable "local_user_name" {
+  default = "Admin"
+}
+
 
 
 #Boot Policy for Fibre Channel Boot

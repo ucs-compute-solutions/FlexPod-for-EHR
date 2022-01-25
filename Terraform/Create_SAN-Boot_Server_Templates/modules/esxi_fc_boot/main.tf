@@ -20,7 +20,7 @@ resource "intersight_access_policy" "imc_access_policy" {
 
 }
 
-### Virtual KVM Policy 
+# Virtual KVM Policy 
 resource "intersight_kvm_policy" "kvm1" {
   name                      = var.name_of_kvm_policy
   description               = var.description_of_kvm_policy
@@ -34,6 +34,21 @@ resource "intersight_kvm_policy" "kvm1" {
     moid        = var.org_moid
   }
 }
+
+# Local User Policy  
+
+# Create the User
+resource "intersight_iam_end_point_user" "local_user1" {
+  name = var.local_user_name
+  # mapping of user to role is performed by resource intersight_iam_end_point_user_role 
+
+  organization {
+    moid        = var.org_moid
+    object_type = "organization.Organization"
+  }
+}
+
+
 
 #Boot Policy for Fibre Channel Boot
 resource "intersight_boot_precision_policy" "boot_policy_for_fc_boot_from_san" {
