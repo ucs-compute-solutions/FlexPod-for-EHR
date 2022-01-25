@@ -20,6 +20,71 @@ resource "intersight_access_policy" "imc_access_policy" {
 
 }
 
+# Virtual KVM Policy 
+resource "intersight_kvm_policy" "kvm1" {
+  name                      = var.name_of_kvm_policy
+  description               = var.description_of_kvm_policy
+  enabled                   = true
+  maximum_sessions          = 3
+  remote_port               = 2069
+  enable_video_encryption   = true
+  enable_local_server_video = true
+  organization {
+    object_type = "organization.Organization"
+    moid        = var.org_moid
+  }
+}
+
+# Local User Policy  
+
+# Create the User
+resource "intersight_iam_end_point_user" "local_user1" {
+  name = var.local_user_name
+  # mapping of user to role is performed by resource intersight_iam_end_point_user_role 
+
+  organization {
+    moid        = var.org_moid
+    object_type = "organization.Organization"
+  }
+}
+
+## Create the Policy
+resource "intersight_iam_end_point_user_policy" "user_policy1" {
+  name        = var.kvm_policy_name
+  description = var.kvm_policy_description
+
+  password_properties {
+    enforce_strong_password  = true
+    enable_password_expiry   = true
+    password_expiry_duration = 50
+    password_history         = 5
+    notification_period      = 1
+    grace_period             = 2
+  }
+  organization {
+    object_type = "organization.Organization"
+    moid        = var.org_moid
+  }
+}
+
+## Apply the User to the Policy, set the password
+resource "intersight_iam_end_point_user_role" "user_role1" {
+  enabled  = true
+  password = var.local_user_pass
+  end_point_role {
+    moid        = data.intersight_iam_end_point_role.admin_role.results[0].moid
+    object_type = data.intersight_iam_end_point_role.admin_role.results[0].object_type
+  }
+  end_point_user {
+    moid        = intersight_iam_end_point_user.local_user1.moid
+    object_type = intersight_iam_end_point_user.local_user1.object_type
+  }
+  end_point_user_policy {
+    moid        = intersight_iam_end_point_user_policy.user_policy1.moid
+    object_type = intersight_iam_end_point_user_policy.user_policy1.object_type
+  }
+}
+
 
 #Boot Policy for Fibre Channel Boot
 resource "intersight_boot_precision_policy" "boot_policy_for_fc_boot_from_san" {

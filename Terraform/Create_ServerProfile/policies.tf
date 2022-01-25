@@ -9,6 +9,15 @@ module "policies_for_esxi_fc_boot" {
   cimc_access_vlan                 = var.vlan_for_cimc_access
   ip_pool_for_cimc_access          = module.create_ip_pool_mgmt.ip_pool_moid
 
+  # Virtual KVM Policy 
+  name_of_kvm_policy             = "${var.name_prefix}-vKVM-Access-Policy"
+  description_of_kvm_policy      = "vKVM Access Policy for ${var.name_prefix}"
+
+  # Local User Policy
+  kvm_policy_name                = "${var.name_prefix}-Local-User-Policy"
+  kvm_policy_description         = "Local User Policy for ${var.name_prefix}"
+  
+
   #Boot Policy for Fibre Channel Boot
   boot_policy_name        = "${var.name_prefix}-Boot-Policy"
   boot_policy_description = "Boot Policy for Fibre Channel Boot"
@@ -30,7 +39,7 @@ module "policies_for_esxi_fc_boot" {
   #Ethernet QoS Policy
   name_of_ethernet_qos_policy_mtu_9000        = "${var.name_prefix}-Ethernet-QoS-Policy"
   description_of_ethernet_qos_policy_mtu_9000 = "Ethernet QoS Policy for ${var.name_prefix}"
-  mtu_9000                                = var.mtu
+  mtu_9000                                    = var.mtu
   class_of_service_mtu_9000                   = var.class_of_service
   burst_mtu_9000                              = var.burst
   priority_mtu_9000                           = var.priority
@@ -89,3 +98,4 @@ module "policies_for_esxi_fc_boot" {
   moid_of_wwpn_pool-a                    = module.create_wwpn_pool-a.fc_pool_moid
   moid_of_wwpn_pool-b                    = module.create_wwpn_pool-b.fc_pool_moid
 }
+
