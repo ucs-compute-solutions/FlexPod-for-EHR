@@ -61,39 +61,6 @@ variable "boot_mode" {
   default = "Uefi"
 }
 
-variable "lun_id" {
-  default = 0
-}
-
-variable "san_boot_device_1_name" {
-  default = "CT0_FC0"
-}
-
-variable "san_boot_device_2_name" {
-  default = "CT1_FC0"
-}
-
-variable "san_boot_device_3_name" {
-  default = "CT0_FC1"
-}
-
-variable "san_boot_device_4_name" {
-  default = "CT1_FC1"
-}
-
-variable "san_boot_target_1_wwpn" {
-}
-
-variable "san_boot_target_2_wwpn" {
-}
-
-variable "san_boot_target_3_wwpn" {
-}
-
-variable "san_boot_target_4_wwpn" {
-}
-
-
 
 
 #BIOS Policy

@@ -24,16 +24,8 @@ module "policies_for_esxi_fc_boot" {
   #Boot Policy for Fibre Channel Boot
   boot_policy_name        = "${var.name_prefix}-Boot-Policy"
   boot_policy_description = "Boot Policy for Fibre Channel Boot"
-  boot_mode               = var.boot_mode
-  lun_id                  = var.lun_id
-  san_boot_device_1_name  = var.san_boot_device_1_name
-  san_boot_device_2_name  = var.san_boot_device_2_name
-  san_boot_device_3_name  = var.san_boot_device_3_name
-  san_boot_device_4_name  = var.san_boot_device_4_name
-  san_boot_target_1_wwpn  = var.san_boot_target_1_wwpn
-  san_boot_target_2_wwpn  = var.san_boot_target_2_wwpn
-  san_boot_target_3_wwpn  = var.san_boot_target_3_wwpn
-  san_boot_target_4_wwpn  = var.san_boot_target_4_wwpn
+  boot_mode               = "Uefi"
+  
 
   #BIOS Policy
   name_of_bios_policy        = "${var.name_prefix}-BIOS-Policy"

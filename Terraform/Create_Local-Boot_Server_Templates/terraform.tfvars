@@ -63,23 +63,6 @@ local_user_name = "Jimbo"
 local_user_pass = "C1sco!23"
 
 
-#Boot Policy for Fibre Channel Boot
-#Either put Uefi or Legacy
-boot_mode = "Legacy"
-#Boot LUN ID
-lun_id = 1
-#Provide logical names to identify during boot
-san_boot_device_1_name = "NetApp-CT0FC0"
-san_boot_device_2_name = "NetApp-CT1FC0"
-san_boot_device_3_name = "NetApp-CT0FC1"
-san_boot_device_4_name = "NetApp-CT1FC1"
-#Provide Target WWPN Names
-san_boot_target_1_wwpn = "20:01:00:A0:98:5B:4A:86"
-san_boot_target_2_wwpn = "20:03:00:A0:98:5B:4A:86"
-san_boot_target_3_wwpn = "20:02:00:A0:98:5B:4A:86"
-san_boot_target_4_wwpn = "20:04:00:A0:98:5B:4A:86"
-
-
 #Ethernet QoS Policy for management vNIC
 mtu = 9000
 
