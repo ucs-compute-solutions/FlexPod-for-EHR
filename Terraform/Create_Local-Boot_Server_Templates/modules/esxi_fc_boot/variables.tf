@@ -40,6 +40,15 @@ variable "kvm_policy_description" {
   default = ""
 }
 
+# Storge Policy 
+variable "name_of_storage_policy" {
+  default = ""
+}
+
+variable "description_of_storage_policy" {
+  default = ""
+}
+
 #Boot Policy for Fibre Channel Boot
 variable "boot_policy_name" {
 }

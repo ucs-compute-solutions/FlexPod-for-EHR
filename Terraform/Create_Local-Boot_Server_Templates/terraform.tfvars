@@ -10,7 +10,7 @@ organization_name = "TME-Testing"
 
 
 #Provide name to be prefixed for all pools and policies
-name_prefix = "Epic"
+name_prefix = "HC"
 
 
 

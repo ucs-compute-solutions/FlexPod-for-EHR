@@ -37,6 +37,14 @@ resource "intersight_server_profile_template" "Server-Profile" {
       selector              = ""
     },
     {
+      moid                  = module.policies_for_esxi_fc_boot.storage_policy_moid,
+      object_type           = "storage.StoragePolicy",
+      class_id              = "storage.StoragePolicy",
+      additional_properties = "",
+      selector              = ""
+
+    },
+    {
       moid                  = module.policies_for_esxi_fc_boot.lan_connectivity_policy_moid,
       object_type           = "vnic.LanConnectivityPolicy",
       class_id              = "vnic.LanConnectivityPolicy",

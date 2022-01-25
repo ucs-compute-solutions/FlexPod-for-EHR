@@ -17,6 +17,10 @@ output "boot_policy_for_fc_moid" {
   value = intersight_boot_precision_policy.boot_policy_for_fc_boot_from_san.moid
 }
 
+# Storage Policy 
+output "storage_policy_moid" {
+  value = intersight_storage_storage_policy.hc_storage_policy.moid
+}
 
 #BIOS Policy
 output "bios_policy_moid" {
