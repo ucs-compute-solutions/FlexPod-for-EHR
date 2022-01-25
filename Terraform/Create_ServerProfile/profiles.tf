@@ -44,6 +44,20 @@ resource "intersight_server_profile" "Server-Profile" {
       selector              = ""
     },
     {
+      moid                  = module.policies_for_esxi_fc_boot.intersight_kvm_policy_moid,
+      object_type           = "kvm.Policy",
+      class_id              = "kvm.Policy",
+      additional_properties = "",
+      selector              = ""
+    },
+    {
+      moid                  = module.policies_for_esxi_fc_boot.local_user_policy_moid,
+      object_type           = "iam.EndPointUserPolicy",
+      class_id              = "iam.EndPointUserPolicy",
+      additional_properties = "",
+      selector              = ""
+    },
+    {
       moid                  = module.policies_for_esxi_fc_boot.san_connectivity_policy_moid,
       object_type           = "vnic.SanConnectivityPolicy",
       class_id              = "vnic.SanConnectivityPolicy",

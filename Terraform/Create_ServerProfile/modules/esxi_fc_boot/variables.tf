@@ -17,6 +17,31 @@ variable "cimc_access_vlan" {
 variable "ip_pool_for_cimc_access" {
 }
 
+# vKVM Policy
+variable "name_of_kvm_policy" {
+}
+
+variable "description_of_kvm_policy" {
+}
+
+# Local User Policy 
+
+variable "local_user_name" {
+  default = "Admin"
+}
+
+variable "local_user_pass" {
+  default = "C1sco!23"
+
+}
+
+variable "kvm_policy_name" {
+}
+
+variable "kvm_policy_description" {
+  default = ""
+}
+
 
 
 #Boot Policy for Fibre Channel Boot
