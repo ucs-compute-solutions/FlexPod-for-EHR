@@ -91,3 +91,18 @@ module "policies_for_esxi_fc_boot" {
   moid_of_wwpn_pool-a                    = module.create_wwpn_pool-a.fc_pool_moid
   moid_of_wwpn_pool-b                    = module.create_wwpn_pool-b.fc_pool_moid
 }
+
+# Virtual KVM Policy 
+resource "intersight_kvm_policy" "kvm1" {
+  name                      = "${var.name_prefix}-KVM-Policy"
+  description               = "Virtual KVM Policy"
+  enabled                   = true
+  maximum_sessions          = 3
+  remote_port               = 2069
+  enable_video_encryption   = true
+  enable_local_server_video = true
+  organization {
+    object_type = "organization.Organization"
+    moid        = module.org_details.org_moid
+  }
+}
