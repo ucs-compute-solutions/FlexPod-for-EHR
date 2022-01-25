@@ -11,6 +11,11 @@ module "policies_for_esxi_fc_boot" {
   cimc_access_vlan                 = var.vlan_for_cimc_access
   ip_pool_for_cimc_access          = module.create_ip_pool_mgmt.ip_pool_moid
 
+  # Virtual KVM Policy 
+  name_of_kvm_policy             = "${var.name_prefix}-vKVM-Access-Policy"
+  description_of_kvm_policy      = "vKVM Access Policy for ${var.name_prefix}"
+
+
   #Boot Policy for Fibre Channel Boot
   boot_policy_name        = "${var.name_prefix}-Boot-Policy"
   boot_policy_description = "Boot Policy for Fibre Channel Boot"

@@ -3,6 +3,11 @@ output "intersight_access_policy_moid" {
   value = intersight_access_policy.imc_access_policy.moid
 }
 
+#VKVM Access Policy
+output "intersight_kvm_policy_moid" {
+  value = intersight_kvm_policy.kvm1.moid
+}
+
 #Boot Policy for Fibre Channel Boot
 output "boot_policy_for_fc_moid" {
   value = intersight_boot_precision_policy.boot_policy_for_fc_boot_from_san.moid

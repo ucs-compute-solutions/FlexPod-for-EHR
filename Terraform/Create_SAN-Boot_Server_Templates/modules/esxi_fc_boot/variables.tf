@@ -15,7 +15,12 @@ variable "cimc_access_vlan" {
 variable "ip_pool_for_cimc_access" {
 }
 
+# vKVM Policy
+variable "name_of_kvm_policy" {
+}
 
+variable "description_of_kvm_policy" {
+}
 
 #Boot Policy for Fibre Channel Boot
 variable "boot_policy_name" {

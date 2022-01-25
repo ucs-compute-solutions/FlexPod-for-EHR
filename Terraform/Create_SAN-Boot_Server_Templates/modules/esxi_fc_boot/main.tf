@@ -20,6 +20,20 @@ resource "intersight_access_policy" "imc_access_policy" {
 
 }
 
+### Virtual KVM Policy 
+resource "intersight_kvm_policy" "kvm1" {
+  name                      = var.name_of_kvm_policy
+  description               = var.description_of_kvm_policy
+  enabled                   = true
+  maximum_sessions          = 3
+  remote_port               = 2069
+  enable_video_encryption   = true
+  enable_local_server_video = true
+  organization {
+    object_type = "organization.Organization"
+    moid        = var.org_moid
+  }
+}
 
 #Boot Policy for Fibre Channel Boot
 resource "intersight_boot_precision_policy" "boot_policy_for_fc_boot_from_san" {
