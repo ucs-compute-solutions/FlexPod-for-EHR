@@ -25,7 +25,7 @@ The steps for setting up a FlexPod with Fibre Channel boot and FC-NVMe and NFS s
 ### Initial NetApp Storage configuration 
 - Follow the manual steps in the CVD to get the NetApp storage cluster on the network.
 - Execute the NetApp storage playbook with "`ansible-playbook -i inventory Setup_ONTAP.yml -t ontap_config_part_1`".
-- Query the fibre channel and FC-NVMe LIF WWPNs and add to the "all.yml" file.
+- Query the fibre channel and FC-NVMe LIF WWPNs and add to the "group_vars/all.yml" file.
 
 ### UCS X-Series server configuration 
 Configuration of the UCS X-Series servers can be completed utilizing the Terraform scripts included in this repository, or by following the manual steps in the CVD.
@@ -37,7 +37,7 @@ Configuration of the UCS X-Series servers can be completed utilizing the Terrafo
 - Follow the manual steps in the CVD to add timezone information to the MDS switches.
 
 ### NetApp Storage Configuration part 2
-- Add the ESXi host initiator fibre channel WWPNs to "`vars/ontap.yml`"
+- Add the ESXi host initiator fibre channel WWPNs to "`vars/ontap_main.yml`"
 - Execute the NetApp storage playbook with "`ansible-playbook -i inventory Setup_ONTAP.yml -t ontap_config_part_2`" to create and map the ESXi boot LUNs.
 
 ### VMware ESXi configuration 
