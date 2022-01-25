@@ -26,6 +26,12 @@ variable "description_of_kvm_policy" {
 variable "local_user_name" {
   default = "Admin"
 }
+variable "kvm_policy_name" {
+}
+
+variable "kvm_policy_description" {
+  default = ""
+}
 
 #Boot Policy for Fibre Channel Boot
 variable "boot_policy_name" {
