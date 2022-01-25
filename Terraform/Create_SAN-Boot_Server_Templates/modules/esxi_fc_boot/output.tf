@@ -8,6 +8,10 @@ output "intersight_kvm_policy_moid" {
   value = intersight_kvm_policy.kvm1.moid
 }
 
+# Local User Policy 
+output "local_user_policy_moid" {
+  value = intersight_iam_end_point_user_policy.user_policy1.moid
+}
 #Boot Policy for Fibre Channel Boot
 output "boot_policy_for_fc_moid" {
   value = intersight_boot_precision_policy.boot_policy_for_fc_boot_from_san.moid
@@ -90,3 +94,4 @@ output "fc_adapter_policy_moid" {
 output "san_connectivity_policy_moid" {
   value = intersight_vnic_san_connectivity_policy.san_connectivity_policy.moid
 }
+
