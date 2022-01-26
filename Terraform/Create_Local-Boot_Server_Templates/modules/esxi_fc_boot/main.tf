@@ -87,18 +87,18 @@ resource "intersight_iam_end_point_user_role" "user_role1" {
 
 # Storage Policy
 resource "intersight_storage_storage_policy" "hc_storage_policy" {
-  name               = var.name_of_storage_policy
+  name                     = var.name_of_storage_policy
   use_jbod_for_vd_creation = true
-  description        = var.description_of_storage_policy
-  unused_disks_state = "Jbod"
+  description              = var.description_of_storage_policy
+  unused_disks_state       = "Jbod"
   organization {
     object_type = "organization.Organization"
     moid        = var.org_moid
   }
   m2_virtual_drive {
-    enable      = true
+    enable          = true
     controller_slot = "MSTOR-RAID-1"
-    object_type = "storage.M2VirtualDriveConfig"
+    object_type     = "storage.M2VirtualDriveConfig"
   }
 }
 
