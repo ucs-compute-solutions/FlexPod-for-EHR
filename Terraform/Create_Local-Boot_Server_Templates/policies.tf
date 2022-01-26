@@ -23,7 +23,7 @@ module "policies_for_esxi_fc_boot" {
 
   #Boot Policy for Fibre Channel Boot
   boot_policy_name        = "${var.name_prefix}-Boot-Policy"
-  boot_policy_description = "Boot Policy for Fibre Channel Boot"
+  boot_policy_description = "Boot Policy for ${var.name_prefix}"
   boot_mode               = "Uefi"
   
 
@@ -62,7 +62,7 @@ module "policies_for_esxi_fc_boot" {
 
   #LAN Connectivity Policy
   name_of_lan_connectivty_policy        = "${var.name_prefix}-LAN-Connectivity-Policy"
-  description_of_lan_connectivty_policy = "LAN Connectivity Policy for Fibre Channel Boot"
+  description_of_lan_connectivty_policy = "LAN Connectivity Policy for ${var.name_prefix}"
   moid_of_mac_pool_a                    = module.create_mac_pool-a.mac_pool_moid
   moid_of_mac_pool_b                    = module.create_mac_pool-b.mac_pool_moid
 
@@ -88,7 +88,7 @@ module "policies_for_esxi_fc_boot" {
 
   #SAN connectivity policy
   name_of_san_connectivity_policy        = "${var.name_prefix}-SAN-Connectivity-Policy"
-  description_of_san_connectivity_policy = "SAN Connectivity Policy for Fibre Channel Boot"
+  description_of_san_connectivity_policy = "SAN Connectivity Policy for ${var.name_prefix}"
   moid_of_wwnn_pool                      = module.create_wwnn_pool.fc_pool_moid
   moid_of_wwpn_pool-a                    = module.create_wwpn_pool-a.fc_pool_moid
   moid_of_wwpn_pool-b                    = module.create_wwpn_pool-b.fc_pool_moid
