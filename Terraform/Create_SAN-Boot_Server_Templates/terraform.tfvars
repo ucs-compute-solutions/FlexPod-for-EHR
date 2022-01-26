@@ -59,7 +59,7 @@ vlan_for_cimc_access = 264
 
 
 # Local User Information
-local_user_name = "Jimbo"
+local_user_name = "Admin"
 local_user_pass = "C1sco!23"
 
 
