@@ -36,7 +36,7 @@ variable "slot_id_of_switch_for_fc_ports_on-fi-a" {
 
 #Create Server Ports
 variable "list_of_server_ports_on-fi-a" {
-  type = list
+  type = list(any)
 }
 
 variable "slot_id_of_switch_for_server_ports_on-fi-a" {
@@ -94,7 +94,7 @@ variable "slot_id_of_switch_for_fc_ports_on-fi-b" {
 
 #Create Server Ports
 variable "list_of_server_ports_on-fi-b" {
-  type = list
+  type = list(any)
 }
 
 variable "slot_id_of_switch_for_server_ports_on-fi-b" {

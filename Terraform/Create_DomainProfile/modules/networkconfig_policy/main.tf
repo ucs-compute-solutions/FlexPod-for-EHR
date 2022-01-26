@@ -1,7 +1,7 @@
 #Update DNS settings
 resource "intersight_networkconfig_policy" "network_config_policy" {
-  name                     = var.name_of_network_config_policy
-  description              = var.description_of_network_config_policy
+  name        = var.name_of_network_config_policy
+  description = var.description_of_network_config_policy
 
   enable_dynamic_dns       = false
   enable_ipv4dns_from_dhcp = false
@@ -11,8 +11,8 @@ resource "intersight_networkconfig_policy" "network_config_policy" {
   alternate_ipv4dns_server = var.alternate_ipv4_dns_server
 
   organization {
-    object_type     = "organization.Organization"
-    moid            = var.org_moid
+    object_type = "organization.Organization"
+    moid        = var.org_moid
   }
 
   profiles = [

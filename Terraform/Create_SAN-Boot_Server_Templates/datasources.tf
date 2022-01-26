@@ -4,9 +4,9 @@ module "org_details" {
 }
 
 locals {
-  servers                        = keys(var.profile_names)
-  profiles                       = values(var.profile_names)
-  profile_names                  = var.profile_names
+  servers       = keys(var.profile_names)
+  profiles      = values(var.profile_names)
+  profile_names = var.profile_names
 }
 
 

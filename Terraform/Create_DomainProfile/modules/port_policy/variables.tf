@@ -33,7 +33,7 @@ variable "slot_id_of_switch_for_fc_ports" {
 
 #Create Server Ports
 variable "list_of_server_ports" {
-  type=list
+  type = list(any)
 }
 
 
@@ -45,7 +45,7 @@ variable "slot_id_of_switch_for_server_ports" {
 
 #Configure Ethernet uplink port-channel on the collection of ports
 variable "list_of_ports_for_ethernet_uplink" {
-  type=list
+  type = list(any)
 }
 
 
@@ -64,7 +64,7 @@ variable "slot_id_of_ports_for_ethernet_uplink" {
 
 #Configure FC uplink port-channel on the collection of ports
 variable "list_of_ports_for_fc_uplink" {
-    type=list
+  type = list(any)
 }
 
 

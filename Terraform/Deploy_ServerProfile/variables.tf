@@ -4,7 +4,7 @@ variable "organization_name" {
 
 
 variable "server_name_to_profile_mapping" {
-  type = map
+  type = map(any)
 }
 
 

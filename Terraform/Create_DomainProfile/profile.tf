@@ -1,5 +1,5 @@
 resource "intersight_fabric_switch_cluster_profile" "fabric_switch_cluster_profile" {
-/*
+  /*
   depends_on = [module.network_config_policy,
                 module.ntp_policy,
                 module.org_details,
@@ -16,8 +16,8 @@ resource "intersight_fabric_switch_cluster_profile" "fabric_switch_cluster_profi
   type        = "instance"
 
   organization {
-    object_type         = "organization.Organization"
-    moid                = module.org_details.org_moid
+    object_type = "organization.Organization"
+    moid        = module.org_details.org_moid
   }
 }
 
@@ -31,14 +31,14 @@ resource "intersight_fabric_switch_profile" "fabric_switch_profile_fi-a" {
 
 
   switch_cluster_profile = [{
-    moid = intersight_fabric_switch_cluster_profile.fabric_switch_cluster_profile.moid
-    object_type = "fabric.SwitchClusterProfile"
-    class_id = "fabric.SwitchClusterProfile"
-    selector = ""
+    moid                  = intersight_fabric_switch_cluster_profile.fabric_switch_cluster_profile.moid
+    object_type           = "fabric.SwitchClusterProfile"
+    class_id              = "fabric.SwitchClusterProfile"
+    selector              = ""
     additional_properties = ""
   }]
 
-/*
+  /*
   policy_bucket = [
     {
       moid = module.vlans_for_fabric_interconnects.vlans_for_fabric_interconnects_moid
@@ -92,11 +92,11 @@ resource "intersight_fabric_switch_profile" "fabric_switch_profile_fi-a" {
 */
 
   assigned_switch = [{
-    moid = data.intersight_network_element_summary.fi-a.results[0].moid
-    object_type = "network.Element"
-    class_id = "network.Element"
+    moid                  = data.intersight_network_element_summary.fi-a.results[0].moid
+    object_type           = "network.Element"
+    class_id              = "network.Element"
     additional_properties = ""
-    selector = ""
+    selector              = ""
   }]
 }
 
@@ -109,14 +109,14 @@ resource "intersight_fabric_switch_profile" "fabric_switch_profile_fi-b" {
 
 
   switch_cluster_profile = [{
-    moid = intersight_fabric_switch_cluster_profile.fabric_switch_cluster_profile.moid
-    object_type = "fabric.SwitchClusterProfile"
-    class_id = "fabric.SwitchClusterProfile"
-    selector = ""
+    moid                  = intersight_fabric_switch_cluster_profile.fabric_switch_cluster_profile.moid
+    object_type           = "fabric.SwitchClusterProfile"
+    class_id              = "fabric.SwitchClusterProfile"
+    selector              = ""
     additional_properties = ""
   }]
 
-/*
+  /*
   policy_bucket = [
     {
       moid = module.vlans_for_fabric_interconnects.vlans_for_fabric_interconnects_moid
@@ -170,10 +170,10 @@ resource "intersight_fabric_switch_profile" "fabric_switch_profile_fi-b" {
 
 
   assigned_switch = [{
-    moid = data.intersight_network_element_summary.fi-b.results[0].moid
-    object_type = "network.Element"
-    class_id = "network.Element"
+    moid                  = data.intersight_network_element_summary.fi-b.results[0].moid
+    object_type           = "network.Element"
+    class_id              = "network.Element"
     additional_properties = ""
-    selector = ""
+    selector              = ""
   }]
 }

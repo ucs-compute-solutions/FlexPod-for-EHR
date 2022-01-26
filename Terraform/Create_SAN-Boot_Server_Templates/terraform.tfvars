@@ -1,7 +1,7 @@
 # Enter API Key Information 
 # Need to clean up prior to publishing
 
-api_key = "61256af57564612d339633f8/61256af57564612d339633fc/61a78e8f7564612d32da9c92"
+api_key      = "61256af57564612d339633f8/61256af57564612d339633fc/61a78e8f7564612d32da9c92"
 api_key_file = "C:/Users/kecorkin/.ssh/SecretKey.txt"
 api_endpoint = "https://www.intersight.com"
 
@@ -15,10 +15,10 @@ name_prefix = "Epic"
 
 
 profile_names = {
-profile1     =  "WSS"
-profile2     =  "HYP"
-profile3     =  "ODB"
-profile4     =  "Reporting"
+  profile1 = "WSS"
+  profile2 = "HYP"
+  profile3 = "ODB"
+  profile4 = "Reporting"
 }
 
 # MAC Pool
