@@ -59,7 +59,7 @@ vlan_for_cimc_access = 264
 
 
 # Local User Information
-local_user_name = "Jimbo"
+local_user_name = "Admin"
 local_user_pass = "C1sco!23"
 
 
@@ -69,12 +69,12 @@ mtu = 9000
 
 #Network Group Policy - VLAN details of vNICs assigned to virtual switches for Management and NFS VLANs
 native_vlan_for_mgmt_vnic   = 1
-allowed_vlans_for_mgmt_vnic = "1,40-45,264"
+allowed_vlans_for_mgmt_vnic = "1,41-44,264"
 
 
 #Network Group Policy - VLANs details of vNIC assigned to VDS for  vMotion and traffic VLANs
 native_vlan_for_vnic_assigned_for_VDS   = 1
-allowed_vlans_for_vnic_assigned_for_VDS = "1,40-45,264"
+allowed_vlans_for_vnic_assigned_for_VDS = "1,41-44,264"
 
 
 #Fibre Channel Network policy: SAN-A

@@ -16,7 +16,9 @@ module "policies_for_esxi_fc_boot" {
   # Local User Policy
   kvm_policy_name                = "${var.name_prefix}-Local-User-Policy"
   kvm_policy_description         = "Local User Policy for ${var.name_prefix}"
-  
+  local_user_name                = var.local_user_name  
+  local_user_pass                = var.local_user_pass
+
   # Storage Policy for Local Boot
   name_of_storage_policy = "${var.name_prefix}-Storage-Policy"
   description_of_storage_policy = "Storage Policy for ${var.name_prefix}"
