@@ -6,12 +6,12 @@
 #configure_iscsi: "yes"
 configure_fc: "yes"
 # FC-NVMe Configuration, only define this if configure_fc is defined
-configure_fc_nvme: "yes"
+#configure_fc_nvme: "yes"
 #
 # Commenting out the configure_nfs will skip the NFS related configuration including
 # datastore mounting and NFS VMK definition.
 #
-configure_nfs: "yes"
+#configure_nfs: "yes"
 #
 # Update the the following lines to setup NTP Server(s)
 # Note that we are setting up NTP Distribution on the Nexus switches and these are the two Nexus mgmt0 IP addresses that will be used for the other FlexPod equipment.
@@ -23,11 +23,11 @@ ib_mgmt_ntp_servers:                # InBand Management NTP Addresses to be used
   - ip_address: "10.10.41.1"
 # Update the the following lines to setup DNS Server(s)
 dns_servers:
-  - ip_address: "10.29.164.4"
+  - ip_address: "10.10.40.4"
   - ip_address: "171.70.168.183"
 
 # DNS Domain Name
-dns_domain_name: "hctme.lab"
+dns_domain_name: "hc.cvd"
 
 # Update the the following line to setup Timezone
 time_zone: 'America/Los_Angeles'
@@ -100,7 +100,7 @@ all_vlans_list: "1,40,41,42,43,132"
 # storage_vlans_list: for vpc_peer_link and UCS FI trunk ports
 storage_vlans_list: "42"
 # mgmt_vlans_list: for uplink/management switch trunk port
-mgmt_vlans_list: "264"
+mgmt_vlans_list: "41"
 #
 native_vlan_id: "1"
 #

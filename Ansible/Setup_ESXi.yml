@@ -8,19 +8,7 @@
 #
 ################################################################################
 ---
-#- hosts: localhost
-- hosts: esxi_iscsi
-  gather_facts: no
-  serial: 1
-  vars_files:
-    - vars/ontap_main.yml
-  roles:
-    - role: ESXIiscsi
-      when: configure_iscsi is defined
-    - role: ESXIhosts
-      when: configure_iscsi is defined
 
- 
 
 - hosts: esxi_fc
   gather_facts: no
