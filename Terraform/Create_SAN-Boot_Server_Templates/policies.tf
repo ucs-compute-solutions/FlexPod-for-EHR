@@ -13,6 +13,10 @@ module "policies_for_esxi_fc_boot" {
   name_of_kvm_policy        = "${var.name_prefix}-vKVM-Access-Policy"
   description_of_kvm_policy = "vKVM Access Policy for ${var.name_prefix}"
 
+  # vMedia Policy 
+  name_of_vmedia_policy        = "${var.name_prefix}-vMedia-Policy"
+  description_of_vmedia_policy = "vMedia Policy for ${var.name_prefix}"
+
   # Local User Policy
   kvm_policy_name        = "${var.name_prefix}-Local-User-Policy"
   kvm_policy_description = "Local User Policy for ${var.name_prefix}"

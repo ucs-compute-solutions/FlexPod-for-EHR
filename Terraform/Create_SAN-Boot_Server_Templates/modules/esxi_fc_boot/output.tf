@@ -8,6 +8,11 @@ output "intersight_kvm_policy_moid" {
   value = intersight_kvm_policy.kvm1.moid
 }
 
+#vMedia Policy 
+output "intersight_vmedia_policy_moid" {
+  value = intersight_vmedia_policy.vmedia1.moid
+}
+
 # Local User Policy 
 output "local_user_policy_moid" {
   value = intersight_iam_end_point_user_policy.user_policy1.moid

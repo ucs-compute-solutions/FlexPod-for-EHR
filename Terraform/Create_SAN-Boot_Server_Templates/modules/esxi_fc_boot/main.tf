@@ -35,6 +35,21 @@ resource "intersight_kvm_policy" "kvm1" {
   }
 }
 
+# Virtual Media Policy  
+
+resource "intersight_vmedia_policy" "vmedia1" {
+  name          = var.name_of_vmedia_policy
+  description   = var.description_of_vmedia_policy
+  enabled       = true
+  encryption    = true
+  low_power_usb = true
+  organization {
+    object_type = "organization.Organization"
+    moid        = var.org_moid
+  }
+  mappings = []
+}
+
 # Local User Policy  
 
 # Create the User

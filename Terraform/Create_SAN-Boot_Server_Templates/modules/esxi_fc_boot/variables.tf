@@ -22,6 +22,13 @@ variable "name_of_kvm_policy" {
 variable "description_of_kvm_policy" {
 }
 
+# Virtual Media Policy
+variable "name_of_vmedia_policy" {
+}
+
+variable "description_of_vmedia_policy" {
+}
+
 # Local User Policy 
 
 variable "local_user_name" {
