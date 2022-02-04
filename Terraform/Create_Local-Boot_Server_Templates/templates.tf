@@ -59,6 +59,13 @@ resource "intersight_server_profile_template" "Server-Profile" {
       selector              = ""
     },
     {
+      moid                  = module.policies_for_esxi_fc_boot.intersight_vmedia_policy_moid,
+      object_type           = "vmedia.Policy",
+      class_id              = "vmedia.Policy",
+      additional_properties = "",
+      selector              = ""
+    },
+    {
       moid                  = module.policies_for_esxi_fc_boot.local_user_policy_moid,
       object_type           = "iam.EndPointUserPolicy",
       class_id              = "iam.EndPointUserPolicy",
