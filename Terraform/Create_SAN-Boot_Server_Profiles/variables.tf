@@ -100,6 +100,12 @@ variable "wwpn_pool_size_on_fi_b" {
 variable "vlan_for_cimc_access" {
 }
 
+# Local User Policy 
+variable "local_user_name" {
+}
+variable "local_user_pass" {
+}
+
 
 
 
