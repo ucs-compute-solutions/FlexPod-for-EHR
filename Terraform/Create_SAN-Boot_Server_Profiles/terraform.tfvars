@@ -53,16 +53,16 @@ secondary_dns_mgmt                    = "171.70.168.183"
 
 
 #WWNN Pool
-wwnn_pool_start = "20:00:00:25:B5:A4:00:00"
+wwnn_pool_start = "20:00:00:25:b5:a4:00:00"
 wwnn_pool_size  = 64
 
 
 #WWPN Pool
 #For FI-A
-wwpn_pool_start_on_fi_a = "20:00:00:25:B5:A4:0A:00"
+wwpn_pool_start_on_fi_a = "20:00:00:25:b5:a4:0a:00"
 wwpn_pool_size_on_fi_a  = 64
 #For FI-B
-wwpn_pool_start_on_fi_b = "20:00:00:25:B5:A4:0B:00"
+wwpn_pool_start_on_fi_b = "20:00:00:25:b5:a4:0b:00"
 wwpn_pool_size_on_fi_b  = 64
 
 
