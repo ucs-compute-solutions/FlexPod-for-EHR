@@ -51,7 +51,11 @@ ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 
 # e.g. 10.1.1.101  vmotion_ip=192.168.30.101  vmotion_mask=255.255.255.0 nfs_ip=192.168.50.101 nfs_mask=255.255.255.0
 # e.g. 10.1.1.102  vmotion_ip=192.168.30.102  vmotion_mask=255.255.255.0 nfs_ip=192.168.50.102 nfs_mask=255.255.255.0
+
 10.10.41.12 vmotion_ip=10.10.43.12 vmotion_mask=255.255.255.0 nfs_ip=10.10.42.12 nfs_mask=255.255.255.0
+10.10.41.15 vmotion_ip=10.10.43.15 vmotion_mask=255.255.255.0 nfs_ip=10.10.42.15 nfs_mask=255.255.255.0
+10.10.41.21 vmotion_ip=10.10.43.21 vmotion_mask=255.255.255.0 nfs_ip=10.10.42.21 nfs_mask=255.255.255.0
+10.10.41.22 vmotion_ip=10.10.43.22 vmotion_mask=255.255.255.0 nfs_ip=10.10.42.22 nfs_mask=255.255.255.0
 
 [esxi_iscsi]
 #

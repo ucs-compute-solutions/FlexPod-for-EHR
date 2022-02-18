@@ -14,12 +14,12 @@ nfs_datastore_type: "nfs41"
 # Variables for ESXi driver installation/update
 #
 
-#nenic_offline_bundle_url: "http://10.1.156.150/software/UCS/Cisco-nenic_1.0.35.0-1OEM.670.0.0.8169922-17305880/Cisco-nenic_1.0.35.0-1OEM.670.0.0.8169922-offline_bundle-17305880.zip"
-#nenic_filename: "Cisco-nenic_1.0.35.0-1OEM.670.0.0.8169922-offline_bundle-17305880.zip"
-#nfnic_offline_bundle_url: "http://10.1.156.150/software/UCS/Cisco-nfnic_5.0.0.12-1OEM.700.1.0.15843807_18369224-package/Cisco-nfnic_5.0.0.12-1OEM.700.1.0.15843807_18369224.zip"
-#nfnic_filename: "Cisco-nfnic_5.0.0.12-1OEM.700.1.0.15843807_18369224.zip"
-#NetAppVAAI_offline_bundle_url: "http://10.1.156.150/software/NetApp/NetAppNasPluginV2.0.zip"
-#NetAppVAAI_filename: "NetAppNasPluginV2.0.zip"
+nenic_offline_bundle_url: "http://10.10.30.5/software/UCS/Cisco-nenic_1.0.35.0-1OEM.670.0.0.8169922-offline_bundle-17305880"
+nenic_filename: "Cisco-nenic_1.0.35.0-1OEM.670.0.0.8169922-offline_bundle-17305880.zip"
+nfnic_offline_bundle_url: "http://10.10.30.5/software/UCS/Cisco-nfnic_5.0.0.15-1OEM.700.1.0.15843807_18697950.zip"
+nfnic_filename: "Cisco-nfnic_5.0.0.15-1OEM.700.1.0.15843807_18697950.zip"
+NetAppVAAI_offline_bundle_url: "http://10.10.30.5/software/NetApp/NetAppNasPluginV2.0.zip"
+NetAppVAAI_filename: "NetAppNasPluginV2.0.zip"
 
 
 # !!!! Need to scrub these from the setup script !!!!
