@@ -79,17 +79,18 @@ local_user_pass = "C1sco!23"
 #Either put Uefi or Legacy
 boot_mode = "Legacy"
 #Boot LUN ID
-lun_id = 1
+lun_id = 0
+
 #Provide logical names to identify during boot
-san_boot_device_1_name = "NetApp-CT0FC0"
-san_boot_device_2_name = "NetApp-CT1FC0"
-san_boot_device_3_name = "NetApp-CT0FC1"
-san_boot_device_4_name = "NetApp-CT1FC1"
+san_boot_device_1_name = "nvme-svm-fc-lif01a"
+san_boot_device_2_name = "nvme-svm-fc-lif01b"
+san_boot_device_3_name = "nvme-svm-fc-lif02a"
+san_boot_device_4_name = "nvme-svm-fc-lif02b"
 #Provide Target WWPN Names
-san_boot_target_1_wwpn = "20:01:00:A0:98:5B:4A:86"
-san_boot_target_2_wwpn = "20:03:00:A0:98:5B:4A:86"
-san_boot_target_3_wwpn = "20:02:00:A0:98:5B:4A:86"
-san_boot_target_4_wwpn = "20:04:00:A0:98:5B:4A:86"
+san_boot_target_1_wwpn = "20:15:d0:39:ea:18:01:47"
+san_boot_target_2_wwpn = "20:16:d0:39:ea:18:01:47"
+san_boot_target_3_wwpn = "20:17:d0:39:ea:18:01:47"
+san_boot_target_4_wwpn = "20:18:d0:39:ea:18:01:47"
 
 
 #Ethernet QoS Policy for management vNIC
