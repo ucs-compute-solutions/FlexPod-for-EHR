@@ -126,7 +126,7 @@ nfs_portgroup: "VMKernel-Infra-NFS"
 esxi_nfs_vlan: "42"
 #
 oob_mgmt_portgroup: "OOB-MGMT Network"
-oob_mgmt_vlan: "132"
+oob_mgmt_vlan: "41"
 #
 #VSAN Parameters   - Not sure we need
 #
@@ -211,7 +211,8 @@ vcenter_password: C1sco!23
 #
 # DVS Parameters; use version 7.0.2 for VMware 7.0U2 or above
 #
-dvs_name: "vDS0"
+#dvs_name: "vDS0"
+dvs_name: "Epic_vDS"
 dv_version: "7.0.2"
 dv_uplink: "2"
 dv_protocol: "lldp"

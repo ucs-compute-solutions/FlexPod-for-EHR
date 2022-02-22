@@ -10,5 +10,5 @@
       esxi_hostname: '{{ inventory_hostname }}'
       switch: "vSwitch0"
       portgroup: "IB-MGMT Network"
-      vlan_id: '0'
+      vlan_id: '0'                                       #Watch this value
     delegate_to: localhost

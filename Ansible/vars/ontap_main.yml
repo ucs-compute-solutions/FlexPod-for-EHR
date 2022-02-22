@@ -100,7 +100,7 @@ svm_specs:
     - nfs
     - fcp
     - nvme
-  client_match: 192.168.30.0/24
+  client_match: 10.10.42.0/24  # What address should this be?
   data_protocol: nfs
   data_volumes:
     - {name:  infra_datastore_01, size: 1024, residing_aggr: aggr01_node01_nvme}
