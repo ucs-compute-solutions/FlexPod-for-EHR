@@ -213,7 +213,7 @@ vcenter_password: C1sco!23
 #
 #dvs_name: "vDS0"
 dvs_name: "Epic_vDS"
-dv_version: "7.0.2"
+dv_version: "7.0.0"
 dv_uplink: "2"
 dv_protocol: "lldp"
 dv_operation: "both"
