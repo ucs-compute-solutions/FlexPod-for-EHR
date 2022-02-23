@@ -11,7 +11,7 @@ configure_fc: "yes"
 # Commenting out the configure_nfs will skip the NFS related configuration including
 # datastore mounting and NFS VMK definition.
 #
-#configure_nfs: "yes"
+configure_nfs: "yes"
 #
 # Update the the following lines to setup NTP Server(s)
 # Note that we are setting up NTP Distribution on the Nexus switches and these are the two Nexus mgmt0 IP addresses that will be used for the other FlexPod equipment.
