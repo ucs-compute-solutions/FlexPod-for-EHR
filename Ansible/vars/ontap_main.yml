@@ -57,7 +57,7 @@ ha_pairs:
     fcp_port_speed: "32" # fcp adapter show -fields speed
     node_specs:
     - node_name: A400-01 # node show
-      sp: {ip: 10.29.164.83, mask: 255.255.255.0, gateway: 10.29.164.1}  # system service-processor show
+      sp: {ip: 10.29.132.120, mask: 255.255.255.0, gateway: 10.29.132.1}  # system service-processor show
       node_mgmt_ip: 10.29.132.121 # network interface show
       partner_mgmt_ip: 10.29.132.122 # network interface show
       data_aggregates: # use as needed storage aggregate show
@@ -73,9 +73,9 @@ ha_pairs:
         - {name: iscsi-lif-01a, address: 192.168.40.11, netmask: 255.255.255.0, fabric: A}  #Do not change the fabric ID
         - {name: iscsi-lif-01b, address: 192.168.50.11, netmask: 255.255.255.0, fabric: B}  #Do not change the fabric ID    
     - node_name: A400-02
-      sp: {ip: 192.168.20.12, mask: 255.255.255.0, gateway: 192.168.20.1}
-      node_mgmt_ip: 192.168.20.13
-      partner_mgmt_ip: 192.168.20.11
+      sp: {ip: 10.29.132.120, mask: 255.255.255.0, gateway: 192.168.20.1}
+      node_mgmt_ip: 10.29.132.122
+      partner_mgmt_ip: 10.29.132.121
       data_aggregates: 
         - {aggr_name: A400_02_NVME_SSD_1, disk_type: SSD-NVM, diskcount: 23}  #Options for disk_type: SAS, SSD, SSD-NVM     
       nfs_lifs: {name: nvme-svm-nfs-lif022, address: 10.10.42.103, netmask: 255.255.255.0}  #Fill out this value only if nfs will be mentioned under allowed_protocols in svm_specs
@@ -134,8 +134,8 @@ svm_specs:
   vsadmin_password: <password>
   os_type: vmware
   dns_server_svm:
-    - 192.168.20.20
-    - 192.168.20.21
+    - 10.10.40.4
+    #- 192.168.20.21
   dns_domain_svm: "vmwaresvm.flexpod.com"
 
 ##################################################################################################################################################
