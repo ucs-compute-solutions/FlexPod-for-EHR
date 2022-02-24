@@ -1,8 +1,6 @@
 variable "org_moid" {
 }
 
-
-
 #IMC Access Policy
 variable "name_of_imc_access_policy" {
 }
@@ -24,6 +22,13 @@ variable "name_of_kvm_policy" {
 variable "description_of_kvm_policy" {
 }
 
+# Virtual Media Policy
+variable "name_of_vmedia_policy" {
+}
+
+variable "description_of_vmedia_policy" {
+}
+
 # Local User Policy 
 
 variable "local_user_name" {
@@ -41,8 +46,6 @@ variable "kvm_policy_name" {
 variable "kvm_policy_description" {
   default = ""
 }
-
-
 
 #Boot Policy for Fibre Channel Boot
 variable "boot_policy_name" {
@@ -100,36 +103,6 @@ variable "description_of_bios_policy" {
 }
 
 
-
-/*
-#Ethernet QoS Policy
-variable "name_of_ethernet_qos_policy" {
-}
-
-variable "description_of_ethernet_qos_policy" {
-  default = ""
-}
-
-variable "mtu" {
-  default = 9000
-}
-
-variable "class_of_service" {
-  default = 0
-}
-
-variable "burst" {
-  default = 1024
-}
-
-variable "priority" {
-  default = "Best Effort"
-}
-
-variable "rate_limit" {
-  default = 0
-}
-*/
 
 #Ethernet QoS Policy: MTU: 9000
 variable "name_of_ethernet_qos_policy_mtu_9000" {
@@ -297,4 +270,12 @@ variable "moid_of_wwpn_pool-a" {
 }
 
 variable "moid_of_wwpn_pool-b" {
+}
+
+variable "moid_of_nvme_pool-a" {
+
+}
+
+variable "moid_of_nvme_pool-b" {
+  
 }

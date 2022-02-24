@@ -13,6 +13,10 @@ module "policies_for_esxi_fc_boot" {
   name_of_kvm_policy        = "${var.name_prefix}-vKVM-Access-Policy"
   description_of_kvm_policy = "vKVM Access Policy for ${var.name_prefix}"
 
+  # vMedia Policy 
+  name_of_vmedia_policy        = "${var.name_prefix}-vMedia-Policy"
+  description_of_vmedia_policy = "vMedia Policy for ${var.name_prefix}"
+
   # Local User Policy
   kvm_policy_name        = "${var.name_prefix}-Local-User-Policy"
   kvm_policy_description = "Local User Policy for ${var.name_prefix}"
@@ -98,5 +102,7 @@ module "policies_for_esxi_fc_boot" {
   moid_of_wwnn_pool                      = module.create_wwnn_pool.fc_pool_moid
   moid_of_wwpn_pool-a                    = module.create_wwpn_pool-a.fc_pool_moid
   moid_of_wwpn_pool-b                    = module.create_wwpn_pool-b.fc_pool_moid
+  moid_of_nvme_pool-a                    = module.create_nvme_pool-a.nvme_pool_moid
+  moid_of_nvme_pool-b                    = module.create_nvme_pool-b.nvme_pool_moid
 }
 
