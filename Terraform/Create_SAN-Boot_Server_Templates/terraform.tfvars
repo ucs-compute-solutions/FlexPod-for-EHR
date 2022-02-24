@@ -34,7 +34,7 @@ vlan_for_cimc_access = 41
 
 
 # IP Pool (IB-MGT)
-ip_pool_start_for_management_access   = "10.10.41.100"
+ip_pool_start_for_management_access   = "10.10.41.50"
 size_of_ip_pool_for_management_access = 12
 gateway_mgmt                          = "10.10.41.1"
 netmask_mgmt                          = "255.255.255.0"
