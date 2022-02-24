@@ -601,6 +601,82 @@ resource "intersight_vnic_lan_connectivity_policy" "lan_connectivity_fi_attached
 
 
 
+/*
+#VNIC: mgmt
+resource "intersight_vnic_eth_if" "mgmt" {
+  name  = "mgmt"
+  failover_enabled = true
+  mac_address_type = "POOL"
+
+  lan_connectivity_policy = [{
+    moid        = intersight_vnic_lan_connectivity_policy.lan_connectivity_fi_attached.moid
+    object_type = "vnic.LanConnectivityPolicy"
+    additional_properties = ""
+    class_id = ""
+    object_type =  ""
+    selector = ""
+  }]
+
+  eth_adapter_policy = [{
+    moid = intersight_vnic_eth_adapter_policy.esxi_ethernet_adapter_policy.moid
+    additional_properties = ""
+    class_id = ""
+    object_type = ""
+    selector = ""
+  }]
+
+  eth_qos_policy = [{
+    moid = intersight_vnic_eth_qos_policy.ethernet_qos_policy.moid
+    additional_properties = ""
+    class_id = ""
+    object_type =  ""
+    selector = ""
+  }]
+
+  fabric_eth_network_control_policy = [{
+    moid= intersight_fabric_eth_network_control_policy.ethernet_network_control_policy.moid
+    additional_properties = ""
+    class_id = ""
+    object_type = ""
+    selector = ""
+  }]
+
+  fabric_eth_network_group_policy = [{
+    moid = intersight_fabric_eth_network_group_policy.ethernet_network_group_policy_inband_mgmt.moid
+    additional_properties = ""
+    class_id = ""
+    object_type = ""
+    selector = ""
+  }]
+
+  mac_pool = [{
+    moid = var.moid_of_mac_pool_a
+    additional_properties = ""
+    class_id = ""
+    object_type =  ""
+    selector = ""
+  }]
+
+  cdn  = [{
+    nr_source = "vnic"
+    additional_properties = ""
+    class_id = ""
+    object_type = ""
+    value = ""
+  }]
+
+  placement = [{
+    switch_id = "A"
+    additional_properties = ""
+    class_id = ""
+    object_type = ""
+    pci_link = 0
+    uplink = 0
+    id= ""
+
+  }]
+}
+*/
 
 
 #VNIC: 00-vSwitch0-A

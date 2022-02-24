@@ -70,7 +70,7 @@ variable "secondary_dns_mgmt" {
 
 #WWNN Pool
 variable "wwnn_pool_start" {
-  default = "20:00:00:25:b5:a4:00:00"
+  default = "20:00:00:25:B5:A4:00:00"
 }
 
 variable "wwnn_pool_size" {
@@ -80,7 +80,7 @@ variable "wwnn_pool_size" {
 
 #WWPN Pools
 variable "wwpn_pool_start_on_fi_a" {
-  default = "20:00:00:25:fc:fc:0a:00"
+  default = "20:00:00:25:B5:A4:0A:00"
 }
 
 variable "wwpn_pool_size_on_fi_a" {
@@ -88,29 +88,13 @@ variable "wwpn_pool_size_on_fi_a" {
 }
 
 variable "wwpn_pool_start_on_fi_b" {
-  default = "20:00:00:25:b5:fc:0b:00"
+  default = "20:00:00:25:B5:A4:0B:00"
 }
 
 variable "wwpn_pool_size_on_fi_b" {
   default = 64
 }
 
-#NVME Pools
-variable "nvme_pool_start_on_fi_a" {
-  default = "20:00:00:25:b5:fc:0a:00"
-}
-
-variable "nvme_pool_size_on_fi_a" {
-  default = 64
-}
-
-variable "nvme_pool_start_on_fi_b" {
-  default = "20:00:00:25:b5:fc:0b:00"
-}
-
-variable "nvme_pool_size_on_fi_b" {
-  default = 64
-}
 
 #IMC Access Policy
 variable "vlan_for_cimc_access" {
@@ -164,35 +148,6 @@ variable "san_boot_target_3_wwpn" {
 variable "san_boot_target_4_wwpn" {
 }
 
-
-## NVME Devices - NOt sure we need.
-variable "nvme_device_1_name" {
-  default = "CT0_FC0"
-}
-
-variable "nvme_device_2_name" {
-  default = "CT1_FC0"
-}
-
-variable "nvme_device_3_name" {
-  default = "CT0_FC1"
-}
-
-variable "nvme_device_4_name" {
-  default = "CT1_FC1"
-}
-
-variable "nvme_target_1_wwpn" {
-}
-
-variable "nvme_target_2_wwpn" {
-}
-
-variable "nvme_target_3_wwpn" {
-}
-
-variable "nvme_target_4_wwpn" {
-}
 
 
 
