@@ -27,7 +27,7 @@ module "policies_for_esxi_fc_boot" {
   name_of_storage_policy        = "${var.name_prefix}-Storage-Policy"
   description_of_storage_policy = "Storage Policy for ${var.name_prefix}"
 
-  #Boot Policy for Fibre Channel Boot
+  #Boot Policy for Local Boot
   boot_policy_name        = "${var.name_prefix}-Boot-Policy"
   boot_policy_description = "Boot Policy for ${var.name_prefix}"
   boot_mode               = "Uefi"
@@ -98,5 +98,7 @@ module "policies_for_esxi_fc_boot" {
   moid_of_wwnn_pool                      = module.create_wwnn_pool.fc_pool_moid
   moid_of_wwpn_pool-a                    = module.create_wwpn_pool-a.fc_pool_moid
   moid_of_wwpn_pool-b                    = module.create_wwpn_pool-b.fc_pool_moid
+  moid_of_nvme_pool-a                    = module.create_nvme_pool-a.nvme_pool_moid
+  moid_of_nvme_pool-b                    = module.create_nvme_pool-b.nvme_pool_moid
 }
 

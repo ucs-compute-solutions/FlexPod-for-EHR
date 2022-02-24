@@ -10,6 +10,8 @@ resource "intersight_server_profile_template" "Server-Profile" {
     module.create_wwpn_pool-b,
     module.create_mac_pool-a,
     module.create_mac_pool-b,
+    module.create_nvme_pool-a,
+    module.create_nvme_pool-b,
   module.policies_for_esxi_fc_boot]
 
   target_platform = "FIAttached"

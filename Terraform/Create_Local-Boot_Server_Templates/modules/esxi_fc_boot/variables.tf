@@ -277,3 +277,11 @@ variable "moid_of_wwpn_pool-a" {
 
 variable "moid_of_wwpn_pool-b" {
 }
+
+variable "moid_of_nvme_pool-a" {
+
+}
+
+variable "moid_of_nvme_pool-b" {
+  
+}
