@@ -67,3 +67,26 @@ module "create_wwpn_pool-b" {
   org_moid               = module.org_details.org_moid
 
 }
+
+module "create_nvme_pool-a" {
+  source                 = "./modules/nvme_pool"
+  name_of_nvme_pool        = "${var.name_prefix}-NVME-Pool-A"
+  description_of_nvme_pool = "NVME Pool for ${var.name_prefix} in FI-A"
+  type_of_nvme_pool        = "WWPN"
+  nvme_pool_start          = var.nvme_pool_start_on_fi_a
+  size_of_nvme_pool        = var.nvme_pool_size_on_fi_a
+  org_moid                 = module.org_details.org_moid
+
+}
+
+
+module "create_nvme_pool-b" {
+  source                 = "./modules/nvme_pool"
+  name_of_nvme_pool        = "${var.name_prefix}-NVME-Pool-B"
+  description_of_nvme_pool = "NVME Pool for ${var.name_prefix} in FI-B"
+  type_of_nvme_pool        = "WWPN"
+  nvme_pool_start          = var.nvme_pool_start_on_fi_b
+  size_of_nvme_pool        = var.nvme_pool_size_on_fi_b
+  org_moid                 = module.org_details.org_moid
+
+}

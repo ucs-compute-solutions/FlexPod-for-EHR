@@ -403,26 +403,6 @@ resource "intersight_bios_policy" "bios_policy" {
 
 
 
-/*
-#Ethernet QoS Policy
-resource "intersight_vnic_eth_qos_policy" "ethernet_qos_policy" {
-  name        = var.name_of_ethernet_qos_policy
-  description = var.description_of_ethernet_qos_policy
-
-  mtu            = var.mtu
-  cos            = var.class_of_service
-  burst          = var.burst
-  priority       = var.priority
-  rate_limit     = var.rate_limit
-  trust_host_cos = false
-
-  organization {
-    object_type = "organization.Organization"
-    moid        = var.org_moid
-  }
-
-}
-*/
 
 
 #Ethernet QoS Policy: MTU: 9000
@@ -599,82 +579,6 @@ resource "intersight_vnic_lan_connectivity_policy" "lan_connectivity_fi_attached
 
 
 
-/*
-#VNIC: mgmt
-resource "intersight_vnic_eth_if" "mgmt" {
-  name  = "mgmt"
-  failover_enabled = true
-  mac_address_type = "POOL"
-
-  lan_connectivity_policy = [{
-    moid        = intersight_vnic_lan_connectivity_policy.lan_connectivity_fi_attached.moid
-    object_type = "vnic.LanConnectivityPolicy"
-    additional_properties = ""
-    class_id = ""
-    object_type =  ""
-    selector = ""
-  }]
-
-  eth_adapter_policy = [{
-    moid = intersight_vnic_eth_adapter_policy.esxi_ethernet_adapter_policy.moid
-    additional_properties = ""
-    class_id = ""
-    object_type = ""
-    selector = ""
-  }]
-
-  eth_qos_policy = [{
-    moid = intersight_vnic_eth_qos_policy.ethernet_qos_policy.moid
-    additional_properties = ""
-    class_id = ""
-    object_type =  ""
-    selector = ""
-  }]
-
-  fabric_eth_network_control_policy = [{
-    moid= intersight_fabric_eth_network_control_policy.ethernet_network_control_policy.moid
-    additional_properties = ""
-    class_id = ""
-    object_type = ""
-    selector = ""
-  }]
-
-  fabric_eth_network_group_policy = [{
-    moid = intersight_fabric_eth_network_group_policy.ethernet_network_group_policy_inband_mgmt.moid
-    additional_properties = ""
-    class_id = ""
-    object_type = ""
-    selector = ""
-  }]
-
-  mac_pool = [{
-    moid = var.moid_of_mac_pool_a
-    additional_properties = ""
-    class_id = ""
-    object_type =  ""
-    selector = ""
-  }]
-
-  cdn  = [{
-    nr_source = "vnic"
-    additional_properties = ""
-    class_id = ""
-    object_type = ""
-    value = ""
-  }]
-
-  placement = [{
-    switch_id = "A"
-    additional_properties = ""
-    class_id = ""
-    object_type = ""
-    pci_link = 0
-    uplink = 0
-    id= ""
-
-  }]
-}
-*/
 
 
 #VNIC: 00-vSwitch0-A
@@ -1054,7 +958,7 @@ resource "intersight_vnic_fc_adapter_policy" "fc_adapter_policy" {
     mode = "MSIx"
   }
 
-  io_throttle_count = 256
+  io_throttle_count = 1024
   lun_count         = 1024
   lun_queue_depth   = 20
 
@@ -1159,6 +1063,8 @@ resource "intersight_vnic_fc_if" "vHBA-A" {
 resource "intersight_vnic_fc_if" "vHBA-B" {
   name = "vHBA-B"
 
+  type = "fc-initiator"
+
   placement {
     switch_id = "B"
   }
@@ -1186,6 +1092,89 @@ resource "intersight_vnic_fc_if" "vHBA-B" {
 
   wwpn_pool = [{
     moid                  = var.moid_of_wwpn_pool-b
+    object_type           = "fcpool.Pool"
+    selector              = ""
+    additional_properties = ""
+    class_id              = ""
+  }]
+}
+
+## NVME Adapters  
+#Virtual Fibre Channel Interface: NVME-A
+resource "intersight_vnic_fc_if" "NVME-A" {
+  name = "NVME-A"
+
+  type = "fc-nvme-initiator"
+
+  placement {
+    switch_id = "A"
+  }
+
+  persistent_bindings = false
+
+  san_connectivity_policy {
+    moid        = intersight_vnic_san_connectivity_policy.san_connectivity_policy.moid
+    object_type = "vnic.SanConnectivityPolicy"
+  }
+
+  fc_network_policy {
+    moid = intersight_vnic_fc_network_policy.fc_network_policy_san-a.moid
+  }
+
+  fc_adapter_policy {
+    moid = intersight_vnic_fc_adapter_policy.fc_adapter_policy.moid
+  }
+
+  fc_qos_policy {
+    moid = intersight_vnic_fc_qos_policy.fc_qos_policy.moid
+  }
+
+  wwpn_address_type = "POOL"
+
+  wwpn_pool = [{
+    moid                  = var.moid_of_nvme_pool-a
+    object_type           = "fcpool.Pool"
+    selector              = ""
+    additional_properties = ""
+    class_id              = ""
+  }]
+}
+
+
+
+#Virtual Fibre Channel Interface: NVME-B
+resource "intersight_vnic_fc_if" "NVME-B" {
+  name = "NVME-B"
+
+  type = "fc-nvme-initiator"
+
+  placement {
+    switch_id = "B"
+  }
+
+  persistent_bindings = false
+
+  san_connectivity_policy {
+    moid        = intersight_vnic_san_connectivity_policy.san_connectivity_policy.moid
+    object_type = "vnic.SanConnectivityPolicy"
+  }
+
+  fc_network_policy {
+    moid = intersight_vnic_fc_network_policy.fc_network_policy_san-b.moid
+  }
+
+  fc_adapter_policy {
+    moid = intersight_vnic_fc_adapter_policy.fc_adapter_policy.moid
+  }
+
+  fc_qos_policy {
+    moid = intersight_vnic_fc_qos_policy.fc_qos_policy.moid
+  }
+
+  wwpn_address_type = "POOL"
+
+  wwpn_pool = [{
+    moid                  = var.moid_of_nvme_pool-b
     object_type           = "fcpool.Pool"
     selector              = ""
     additional_properties = ""
