@@ -15,7 +15,7 @@ name_prefix = "HC"
 
 
 profile_names = {
-  profile1 = "Epic-SAN"
+  profile1 = "Epic-local"
   #profile2 = "HYP-BfS"
   #profile3 = "ODB-BfS"
   #profile4 = "Reporting-BfS"
