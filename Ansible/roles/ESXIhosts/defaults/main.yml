@@ -12,7 +12,7 @@ mgmt_uplink2: "vmnic1"
 nfs_datastore_type: "nfs41"
 #
 # Variables for ESXi driver installation/update
-#
+# esxcli network nic get -n vmnic0
 
 nenic_offline_bundle_url: "http://10.10.30.5/software/UCS/Cisco-nenic_1.0.35.0-1OEM.670.0.0.8169922-offline_bundle-17305880.zip"
 nenic_filename: "Cisco-nenic_1.0.35.0-1OEM.670.0.0.8169922-offline_bundle-17305880.zip"

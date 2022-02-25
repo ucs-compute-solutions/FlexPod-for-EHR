@@ -6,7 +6,7 @@ This repository for FlexPod contains Ansible playbooks and Terraform scripts to 
 
 The CVD lays out the complete process for configuring the FlexPod using Ansible. These playbooks are intended to save time in setting up a working FlexPod.
 
-![block-diagram](./images/Topology_Diagram.png)  
+![block-diagram](./images/Architecture.png)  
 
 ## Workflow  
 

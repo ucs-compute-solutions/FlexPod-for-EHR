@@ -19,8 +19,10 @@
   - include_tasks: add_esxi_nfs_datastores.yml
 # Set ESXi Power Management Policy to High-Performance
   - include_tasks: set_esxi_powermgmt_policy.yml
-# Upgrade or Install VIC Drivers, NetApp NFS VAAI Plugin, and UCS Tools
+# Upgrade or Install VIC Drivers and  NetApp NFS VAAI Plugin
 #  - include_tasks: upgrade_ESXi_drivers.yml
 #
 
 # Update drivers is currently troublesome
+# esxcli network nic get -n vmnic0
+# esxcli storage san fc list
