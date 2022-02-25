@@ -16,7 +16,7 @@
   fc_nvme_zone_name: "FC-NVMe-{{ svm_specs.svm_name }}-A"
 #
 # Device alias lists using device names and PWWNs from CVD.  Update the PWWNs to match your deployment
-  fcp_device_alias_list:
+  fcp_device_alias_list: # Add or remove UCS hosts as needed
     - device_name: "{{ svm_specs.svm_name }}-fcp-lif-01a"
       pwwn: "{{ fcp_lif_01a }}"
       dev_type: target
@@ -33,7 +33,7 @@
       pwwn: "{{ ucs_host_03_a }}"
       dev_type: initiator
 #
-  fc_nvme_device_alias_list:
+  fc_nvme_device_alias_list: # Add or remove UCS hosts as needed
     - device_name: "{{ svm_specs.svm_name }}-fc-nvme-lif-01a"
       pwwn: "{{ fc_nvme_lif_01a }}"
       dev_type: target
@@ -48,6 +48,9 @@
       dev_type: initiator
     - device_name: "VM-Host-Infra-FC-NVMe-03-A"
       pwwn: "{{ ucs_nvme_03_a }}"
+      dev_type: initiator
+    - device_name: "VM-Host-Infra-FC-NVMe-04-A"
+      pwwn: "{{ ucs_nvme_04_a }}"
       dev_type: initiator
 #
 # MDS Switch FC Interface List
