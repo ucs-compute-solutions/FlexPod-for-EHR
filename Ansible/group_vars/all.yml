@@ -96,7 +96,7 @@ remaining_vlan_list:
 # These VLANs must be same or a subset of the vlan_list above
 # In future, these values will be auto-generated
 #
-all_vlans_list: "1,40,41,42,43,132"
+all_vlans_list: "1,40-43,132"
 # storage_vlans_list: for vpc_peer_link and UCS FI trunk ports
 storage_vlans_list: "42"
 # mgmt_vlans_list: for uplink/management switch trunk port
@@ -133,11 +133,11 @@ oob_mgmt_vlan: "41"
 vsan_list:
   - name: 'HC-Fabric-A'
     vsan_id: '401'
-    fcoe_vlan: '101'
+    fcoe_vlan: '0'
     fabric: 'A'
   - name: 'HC-Fabric-B'
     vsan_id: '402'
-    fcoe_vlan: '102'
+    fcoe_vlan: '0'
     fabric: 'B'
 #
 # Storage FC WWPNs (capture from storage system) 
