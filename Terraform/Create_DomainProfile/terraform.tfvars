@@ -1,8 +1,8 @@
 # Enter API Key Information 
 # Need to clean up prior to publishing
 
-api_key      = "5af5fdac63373568712ad9c8/6182b27e7564612d306b7a01/61fbfaf07564612d30535328" 
-api_key_file = "C:/test/EFPCVD-CVD/SecretKey.txt"
+api_key      = "61256af57564612d339633f8/61256af57564612d339633fc/6222416e7564612d32e6eefe" 
+api_key_file = "C:/Users/kecorkin/.ssh/SecretKey.txt"
 api_endpoint = "https://www.intersight.com"
 
 
