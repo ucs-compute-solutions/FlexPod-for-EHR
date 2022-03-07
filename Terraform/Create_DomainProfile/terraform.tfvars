@@ -11,7 +11,7 @@ organization_name = "TME-Testing"
 
 
 #Provide name to be prefixed for all the policies of Domain Profile
-name_prefix = "HC-TME"
+name_prefix = "HC"
 
 #Name of UCS Domain Profile
 name_of_ucs_domain_profile = "HC-TME"
@@ -37,14 +37,14 @@ slot_id_of_switch_for_server_ports_on-fi-a = 1
 
 #Configure Ethernet uplink port-channel on the collection of ports
 list_of_ports_for_ethernet_uplink_on-fi-a            = [49, 50]
-admin_speed_for_ethernet_uplink_port_channel_on-fi-a = "Auto"
+admin_speed_for_ethernet_uplink_port_channel_on-fi-a = "Auto"  # Values = Auto, 1Gbps, 10Gbps, 25Gbps, 40Gbps, 100Gbps
 port_channel_id_for_ethernet_uplink_on-fi-a          = 51
 slot_id_of_ports_for_ethernet_uplink_on-fi-a         = 1
 
 
 #Configure FC uplink port-channel on the collection of ports
 list_of_ports_for_fc_uplink_on-fi-a            = [1, 2]
-admin_speed_for_fc_uplink_port_channel_on-fi-a = "8Gbps"
+admin_speed_for_fc_uplink_port_channel_on-fi-a = "8Gbps" # Values = 8Gbps, 16Gbps, 32Gbps
 port_channel_id_for_fc_uplink_on-fi-a          = 111
 correspnding_vsan_id_on-fi-a                   = 111
 slot_id_of_ports_for_fc_uplink_on-fi-a         = 1
@@ -63,14 +63,14 @@ slot_id_of_switch_for_server_ports_on-fi-b = 1
 
 #Configure Ethernet uplink port-channel on the collection of ports
 list_of_ports_for_ethernet_uplink_on-fi-b            = [49, 50]
-admin_speed_for_ethernet_uplink_port_channel_on-fi-b = "Auto"
+admin_speed_for_ethernet_uplink_port_channel_on-fi-b = "Auto"    # Values = Auto, 1Gbps, 10Gbps, 25Gbps, 40Gbps, 100Gbps
 port_channel_id_for_ethernet_uplink_on-fi-b          = 52
 slot_id_of_ports_for_ethernet_uplink_on-fi-b         = 1
 
 
 #Configure FC uplink port-channel on the collection of ports
 list_of_ports_for_fc_uplink_on-fi-b            = [1, 2]
-admin_speed_for_fc_uplink_port_channel_on-fi-b = "Auto"
+admin_speed_for_fc_uplink_port_channel_on-fi-b = "8Gbps"  # Values = 8Gbps, 16Gbps, 32Gbps
 port_channel_id_for_fc_uplink_on-fi-b          = 112
 correspnding_vsan_id_on-fi-b                   = 112
 slot_id_of_ports_for_fc_uplink_on-fi-b         = 1
@@ -79,7 +79,7 @@ slot_id_of_ports_for_fc_uplink_on-fi-b         = 1
 
 #Configuration details for all VLANs in Fabric Interconnects
 #Specify the native vlan id
-native_vlan = 2
+native_vlan = 1
 
 #Specify the VLAN Name and VLAN ID like below
 /*  --EXAMPLE--
