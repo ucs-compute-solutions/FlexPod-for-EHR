@@ -100,39 +100,42 @@ resource "intersight_iam_end_point_user_role" "user_role1" {
   }
 }
 
+# Storage Policy
+resource "intersight_storage_storage_policy" "hc_storage_policy" {
+  name                     = var.name_of_storage_policy
+  use_jbod_for_vd_creation = true
+  description              = var.description_of_storage_policy
+  unused_disks_state       = "Jbod"
+  organization {
+    object_type = "organization.Organization"
+    moid        = var.org_moid
+  }
+  m2_virtual_drive {
+    enable          = true
+    controller_slot = "MSTOR-RAID-1"
+    object_type     = "storage.M2VirtualDriveConfig"
+  }
+}
+
 
 #Boot Policy for Fibre Channel Boot
 resource "intersight_boot_precision_policy" "boot_policy_for_fc_boot_from_san" {
   name        = var.boot_policy_name
   description = var.boot_policy_description
 
-  configured_boot_mode = var.boot_mode
-  boot_devices = var.boot_mode == "Uefi" ? [
+  configured_boot_mode = "Uefi" #var.boot_mode
+  boot_devices = [
     { enabled = true, class_id = "boot.VirtualMedia", name = "kvm-mapped-dvd", object_type = "boot.VirtualMedia", additional_properties = jsonencode({ Subtype = "kvm-mapped-dvd" }) },
 
-    { enabled = true, class_id = "boot.San", name = var.san_boot_device_1_name, interface_name = "vHBA-A", object_type = "boot.San", additional_properties = jsonencode({ wwpn = var.san_boot_target_1_wwpn, lun = var.lun_id, interfacename = "vHBA-A", bootloader = { description = "esxi", name = "bootx64.efi", path = "\\EFI\\BOOT\\BOOTx64.EFI" } }) },
-
-    { enabled = true, class_id = "boot.San", name = var.san_boot_device_2_name, interface_name = "vHBA-A", object_type = "boot.San", additional_properties = jsonencode({ wwpn = var.san_boot_target_1_wwpn, lun = var.lun_id, interfacename = "vHBA-A", bootloader = { description = "esxi", name = "bootx64.efi", path = "\\EFI\\BOOT\\BOOTx64.EFI" } }) },
-
-    { enabled = true, class_id = "boot.San", name = var.san_boot_device_3_name, interface_name = "vHBA-B", object_type = "boot.San", additional_properties = jsonencode({ wwpn = var.san_boot_target_1_wwpn, lun = var.lun_id, interfacename = "vHBA-B", bootloader = { description = "esxi", name = "bootx64.efi", path = "\\EFI\\BOOT\\BOOTx64.EFI" } }) },
-
-    { enabled = true, class_id = "boot.San", name = var.san_boot_device_4_name, interface_name = "vHBA-B", object_type = "boot.San", additional_properties = jsonencode({ wwpn = var.san_boot_target_1_wwpn, lun = var.lun_id, interfacename = "vHBA-B", bootloader = { description = "esxi", name = "bootx64.efi", path = "\\EFI\\BOOT\\BOOTx64.EFI" } }) }] : [
-
-    { enabled = true, class_id = "boot.VirtualMedia", name = "kvm-mapped-dvd", object_type = "boot.VirtualMedia", additional_properties = jsonencode({ Subtype = "kvm-mapped-dvd" }) },
-
-    { enabled = true, class_id = "boot.San", name = var.san_boot_device_1_name, interface_name = "vHBA-A", object_type = "boot.San", additional_properties = jsonencode({ wwpn = var.san_boot_target_1_wwpn, lun = var.lun_id, interfacename = "vHBA-A" }) },
-
-    { enabled = true, class_id = "boot.San", name = var.san_boot_device_2_name, interface_name = "vHBA-A", object_type = "boot.San", additional_properties = jsonencode({ wwpn = var.san_boot_target_2_wwpn, lun = var.lun_id, interfacename = "vHBA-A" }) },
-
-    { enabled = true, class_id = "boot.San", name = var.san_boot_device_3_name, interface_name = "vHBA-B", object_type = "boot.San", additional_properties = jsonencode({ wwpn = var.san_boot_target_3_wwpn, lun = var.lun_id, interfacename = "vHBA-B" }) },
-
-  { enabled = true, class_id = "boot.San", name = var.san_boot_device_4_name, interface_name = "vHBA-B", object_type = "boot.San", additional_properties = jsonencode({ wwpn = var.san_boot_target_4_wwpn, lun = var.lun_id, interfacename = "vHBA-B" }) }]
+    { enabled = true, class_id = "boot.LocalDisk", name = "M2_Boot", object_type = "boot.LocalDisk", additional_properties = jsonencode({ Subtype = "None", bootloader = { description = "esxi", name = "bootx64.efi", path = "\\EFI\\BOOT\\BOOTx64.EFI" } }) }
+  ]
 
   organization {
     object_type = "organization.Organization"
     moid        = var.org_moid
   }
 }
+
 
 
 

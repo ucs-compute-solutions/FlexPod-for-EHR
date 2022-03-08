@@ -44,6 +44,7 @@ module "create_wwnn_pool" {
 
 }
 
+# May not need
 
 module "create_wwpn_pool-a" {
   source                 = "./modules/fc_pool"
@@ -56,6 +57,7 @@ module "create_wwpn_pool-a" {
 
 }
 
+# May not need
 
 module "create_wwpn_pool-b" {
   source                 = "./modules/fc_pool"

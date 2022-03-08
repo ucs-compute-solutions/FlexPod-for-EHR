@@ -6,8 +6,8 @@ resource "intersight_server_profile" "Server-Profile" {
   //Some issue with automatic dependency resolution during destroy - Will fix it later.
   depends_on = [module.create_ip_pool_mgmt,
     module.create_wwnn_pool,
-    module.create_wwpn_pool-a,
-    module.create_wwpn_pool-b,
+    module.create_wwpn_pool-a, # May not need
+    module.create_wwpn_pool-b, # May not need
     module.create_mac_pool-a,
     module.create_mac_pool-b,
     module.create_nvme_pool-a,

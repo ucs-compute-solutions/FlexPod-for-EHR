@@ -78,7 +78,7 @@ variable "wwnn_pool_size" {
 }
 
 
-#WWPN Pools
+#WWPN Pools                                    # May not need
 variable "wwpn_pool_start_on_fi_a" {
   default = "20:00:00:25:fc:fc:0a:00"
 }

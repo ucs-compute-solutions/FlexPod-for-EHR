@@ -1,5 +1,5 @@
 
-module "policies_for_esxi_fc_boot" {
+module "policies_for_esxi_fc_boot" {   # Need to rename this
   source   = "./modules/esxi_fc_boot"
   org_moid = module.org_details.org_moid
 
@@ -23,19 +23,15 @@ module "policies_for_esxi_fc_boot" {
   local_user_name        = var.local_user_name
   local_user_pass        = var.local_user_pass
 
-  #Boot Policy for Fibre Channel Boot
+  # Storage Policy for Local Boot
+  name_of_storage_policy        = "${var.name_prefix}-Storage-Policy"
+  description_of_storage_policy = "Storage Policy for ${var.name_prefix}"
+  
+  #Boot Policy for Local Boot
   boot_policy_name        = "${var.name_prefix}-Boot-Policy"
-  boot_policy_description = "Boot Policy for Fibre Channel Boot"
-  boot_mode               = var.boot_mode
-  lun_id                  = var.lun_id
-  san_boot_device_1_name  = var.san_boot_device_1_name
-  san_boot_device_2_name  = var.san_boot_device_2_name
-  san_boot_device_3_name  = var.san_boot_device_3_name
-  san_boot_device_4_name  = var.san_boot_device_4_name
-  san_boot_target_1_wwpn  = var.san_boot_target_1_wwpn
-  san_boot_target_2_wwpn  = var.san_boot_target_2_wwpn
-  san_boot_target_3_wwpn  = var.san_boot_target_3_wwpn
-  san_boot_target_4_wwpn  = var.san_boot_target_4_wwpn
+  boot_policy_description = "Boot Policy for ${var.name_prefix}"
+  boot_mode               = "Uefi"
+
 
   #BIOS Policy
   name_of_bios_policy        = "${var.name_prefix}-BIOS-Policy"
@@ -105,4 +101,5 @@ module "policies_for_esxi_fc_boot" {
   moid_of_nvme_pool-a                    = module.create_nvme_pool-a.nvme_pool_moid
   moid_of_nvme_pool-b                    = module.create_nvme_pool-b.nvme_pool_moid
 }
+# May not need to create WWPN-A/B Pools Fix later
 

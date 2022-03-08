@@ -1,8 +1,8 @@
 # Enter API Key Information 
 # Need to clean up prior to publishing
 
-api_key      = "5af5fdac63373568712ad9c8/6182b27e7564612d306b7a01/61fbfaf07564612d30535328" 
-api_key_file = "C:/test/EFPCVD-CVD/SecretKey.txt"
+api_key      = "61256af57564612d339633f8/61256af57564612d339633fc/6222416e7564612d32e6eefe" 
+api_key_file = "C:/Users/kecorkin/.ssh/SecretKey.txt"
 api_endpoint = "https://www.intersight.com"
 
 #Provide the name of Intersight Organization.
@@ -28,6 +28,7 @@ AA04-6454-1-8     =  "IMM-Demo-ESXi-Host-8"
 */
 
 # Can Create any profile name desired. 
+# Server_name = Profile_Name
 server_name_to_profile_mapping = {
   vdi-tme-1-5 = "Epic-Host-1-5"
 }
@@ -61,7 +62,7 @@ wwnn_pool_start = "20:00:00:25:b5:a4:00:00"
 wwnn_pool_size  = 64
 
 
-#WWPN Pool
+#WWPN Pool                                            # May not need
 #For FI-A
 wwpn_pool_start_on_fi_a = "20:00:00:25:b5:fc:0a:00"
 wwpn_pool_size_on_fi_a  = 64
@@ -84,34 +85,6 @@ local_user_name = "Admin"
 local_user_pass = "C1sco!23"
 
 
-#Boot Policy for Fibre Channel Boot
-#Use Uefi
-boot_mode = "Uefi"
-#Boot LUN ID
-lun_id = 0
-
-#Provide logical names to identify during boot
-san_boot_device_1_name = "nvme-svm-fc-lif01a"
-san_boot_device_2_name = "nvme-svm-fc-lif01b"
-san_boot_device_3_name = "nvme-svm-fc-lif02a"
-san_boot_device_4_name = "nvme-svm-fc-lif02b"
-#Provide Target WWPN Names
-san_boot_target_1_wwpn = "20:15:d0:39:ea:18:01:47"
-san_boot_target_2_wwpn = "20:16:d0:39:ea:18:01:47"
-san_boot_target_3_wwpn = "20:17:d0:39:ea:18:01:47"
-san_boot_target_4_wwpn = "20:18:d0:39:ea:18:01:47"
-
-
-#Provide logical names to identify during attach  # !! Not sure we need these.
-nvme_device_1_name = "nvme-svm-fc-lif01a"
-nvme_device_2_name = "nvme-svm-fc-lif01b"
-nvme_device_3_name = "nvme-svm-fc-lif02a"
-nvme_device_4_name = "nvme-svm-fc-lif02b"
-#Provide nvme Target WWPN Names
-nvme_target_1_wwpn = "20:15:d0:39:ea:18:01:47"
-nvme_target_2_wwpn = "20:16:d0:39:ea:18:01:47"
-nvme_target_3_wwpn = "20:17:d0:39:ea:18:01:47"
-nvme_target_4_wwpn = "20:18:d0:39:ea:18:01:47"
 
 #Ethernet QoS Policy for management vNIC
 mtu = 9000

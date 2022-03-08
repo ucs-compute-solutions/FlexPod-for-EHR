@@ -1,3 +1,8 @@
+data "intersight_iam_end_point_user" "local_user1" {
+}
+data "intersight_iam_end_point_role" "admin_role" {
+}
+
 module "org_details" {
   source            = "./modules/org_details"
   organization_name = var.organization_name

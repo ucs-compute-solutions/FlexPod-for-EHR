@@ -78,7 +78,7 @@ variable "wwnn_pool_size" {
 }
 
 
-#WWPN Pools
+#WWPN Pools                               # May not need
 variable "wwpn_pool_start_on_fi_a" {
   default = "20:00:00:25:fc:fc:0a:00"
 }
@@ -131,67 +131,9 @@ variable "boot_mode" {
   default     = "Uefi"
 }
 
-variable "lun_id" {
-  default = 0
-}
-
-variable "san_boot_device_1_name" {
-  default = "CT0_FC0"
-}
-
-variable "san_boot_device_2_name" {
-  default = "CT1_FC0"
-}
-
-variable "san_boot_device_3_name" {
-  default = "CT0_FC1"
-}
-
-variable "san_boot_device_4_name" {
-  default = "CT1_FC1"
-}
-
-variable "san_boot_target_1_wwpn" {
-}
-
-variable "san_boot_target_2_wwpn" {
-}
-
-variable "san_boot_target_3_wwpn" {
-}
-
-variable "san_boot_target_4_wwpn" {
-}
 
 
-## NVME Devices - NOt sure we need.
-variable "nvme_device_1_name" {
-  default = "CT0_FC0"
-}
 
-variable "nvme_device_2_name" {
-  default = "CT1_FC0"
-}
-
-variable "nvme_device_3_name" {
-  default = "CT0_FC1"
-}
-
-variable "nvme_device_4_name" {
-  default = "CT1_FC1"
-}
-
-variable "nvme_target_1_wwpn" {
-}
-
-variable "nvme_target_2_wwpn" {
-}
-
-variable "nvme_target_3_wwpn" {
-}
-
-variable "nvme_target_4_wwpn" {
-}
 
 
 #Ethernet QoS Policy
