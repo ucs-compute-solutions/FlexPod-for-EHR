@@ -70,7 +70,6 @@ variable "boot_mode" {
 
 
 
-
 #BIOS Policy
 variable "name_of_bios_policy" {
 }
@@ -80,6 +79,36 @@ variable "description_of_bios_policy" {
 }
 
 
+
+/*
+#Ethernet QoS Policy
+variable "name_of_ethernet_qos_policy" {
+}
+
+variable "description_of_ethernet_qos_policy" {
+  default = ""
+}
+
+variable "mtu" {
+  default = 9000
+}
+
+variable "class_of_service" {
+  default = 0
+}
+
+variable "burst" {
+  default = 1024
+}
+
+variable "priority" {
+  default = "Best Effort"
+}
+
+variable "rate_limit" {
+  default = 0
+}
+*/
 
 #Ethernet QoS Policy: MTU: 9000
 variable "name_of_ethernet_qos_policy_mtu_9000" {

@@ -45,6 +45,7 @@ module "create_wwnn_pool" {
 }
 
 # May not need
+
 module "create_wwpn_pool-a" {
   source                 = "./modules/fc_pool"
   name_of_fc_pool        = "${var.name_prefix}-WWPN-Pool-A"

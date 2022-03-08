@@ -24,7 +24,7 @@ variable "name_prefix" {
 }
 
 
-variable "server_name_to_profile_mapping" {
+variable "profile_names" {
   type = map(any)
 }
 
@@ -78,7 +78,7 @@ variable "wwnn_pool_size" {
 }
 
 
-#WWPN Pools                               # May not need
+#WWPN Pools                                    # May not need
 variable "wwpn_pool_start_on_fi_a" {
   default = "20:00:00:25:fc:fc:0a:00"
 }
@@ -116,6 +116,7 @@ variable "nvme_pool_size_on_fi_b" {
 variable "vlan_for_cimc_access" {
 }
 
+
 # Local User Policy 
 variable "local_user_name" {
 }
@@ -130,7 +131,6 @@ variable "boot_mode" {
   description = "Either put Uefi or Legacy"
   default     = "Uefi"
 }
-
 
 
 

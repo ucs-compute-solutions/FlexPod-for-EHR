@@ -26,7 +26,7 @@ module "policies_for_esxi_fc_boot" {   # Need to rename this
   # Storage Policy for Local Boot
   name_of_storage_policy        = "${var.name_prefix}-Storage-Policy"
   description_of_storage_policy = "Storage Policy for ${var.name_prefix}"
-  
+
   #Boot Policy for Local Boot
   boot_policy_name        = "${var.name_prefix}-Boot-Policy"
   boot_policy_description = "Boot Policy for ${var.name_prefix}"
@@ -68,7 +68,7 @@ module "policies_for_esxi_fc_boot" {   # Need to rename this
 
   #LAN Connectivity Policy
   name_of_lan_connectivty_policy        = "${var.name_prefix}-LAN-Connectivity-Policy"
-  description_of_lan_connectivty_policy = "LAN Connectivity Policy for Fibre Channel Boot"
+  description_of_lan_connectivty_policy = "LAN Connectivity Policy for ${var.name_prefix}"
   moid_of_mac_pool_a                    = module.create_mac_pool-a.mac_pool_moid
   moid_of_mac_pool_b                    = module.create_mac_pool-b.mac_pool_moid
 
@@ -94,7 +94,7 @@ module "policies_for_esxi_fc_boot" {   # Need to rename this
 
   #SAN connectivity policy
   name_of_san_connectivity_policy        = "${var.name_prefix}-SAN-Connectivity-Policy"
-  description_of_san_connectivity_policy = "SAN Connectivity Policy for Fibre Channel Boot"
+  description_of_san_connectivity_policy = "SAN Connectivity Policy for ${var.name_prefix}"
   moid_of_wwnn_pool                      = module.create_wwnn_pool.fc_pool_moid
   moid_of_wwpn_pool-a                    = module.create_wwpn_pool-a.fc_pool_moid
   moid_of_wwpn_pool-b                    = module.create_wwpn_pool-b.fc_pool_moid
@@ -102,4 +102,3 @@ module "policies_for_esxi_fc_boot" {   # Need to rename this
   moid_of_nvme_pool-b                    = module.create_nvme_pool-b.nvme_pool_moid
 }
 # May not need to create WWPN-A/B Pools Fix later
-

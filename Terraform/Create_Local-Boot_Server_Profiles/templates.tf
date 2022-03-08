@@ -1,6 +1,6 @@
 
-resource "intersight_server_profile" "Server-Profile" {
-  for_each = local.server_moid_to_profile_mapping
+resource "intersight_server_profile_template" "Server-Profile" {
+  for_each = local.profile_names
   name     = each.value
 
   //Some issue with automatic dependency resolution during destroy - Will fix it later.
@@ -37,6 +37,14 @@ resource "intersight_server_profile" "Server-Profile" {
       class_id              = "access.Policy",
       additional_properties = "",
       selector              = ""
+    },
+    {
+      moid                  = module.policies_for_esxi_fc_boot.storage_policy_moid,
+      object_type           = "storage.StoragePolicy",
+      class_id              = "storage.StoragePolicy",
+      additional_properties = "",
+      selector              = ""
+
     },
     {
       moid                  = module.policies_for_esxi_fc_boot.lan_connectivity_policy_moid,
@@ -78,14 +86,4 @@ resource "intersight_server_profile" "Server-Profile" {
     object_type = "organization.Organization"
     moid        = module.org_details.org_moid
   }
-
-  assigned_server = [
-    {
-      moid                  = each.key
-      object_type           = "compute.Blade"
-      class_id              = "compute.Blade"
-      additional_properties = ""
-      selector              = ""
-  }]
-
 }

@@ -50,6 +50,7 @@ resource "intersight_vmedia_policy" "vmedia1" {
   mappings = []
 }
 
+
 # Local User Policy  
 
 # Create the User
@@ -117,7 +118,6 @@ resource "intersight_storage_storage_policy" "hc_storage_policy" {
   }
 }
 
-
 #Boot Policy for Fibre Channel Boot
 resource "intersight_boot_precision_policy" "boot_policy_for_fc_boot_from_san" {
   name        = var.boot_policy_name
@@ -135,7 +135,6 @@ resource "intersight_boot_precision_policy" "boot_policy_for_fc_boot_from_san" {
     moid        = var.org_moid
   }
 }
-
 
 
 
@@ -491,7 +490,7 @@ resource "intersight_vnic_eth_adapter_policy" "esxi_ethernet_adapter_policy" {
 
   completion_queue_settings {
     nr_count  = 2
-    ring_size = 1
+    #ring_size = 1
   }
 
   rx_queue_settings {
@@ -972,11 +971,11 @@ resource "intersight_vnic_fc_adapter_policy" "fc_adapter_policy" {
   resource_allocation_timeout = 10000
 
   rx_queue_settings {
-    nr_count  = 1
+    #nr_count  = 1
     ring_size = 64
   }
   tx_queue_settings {
-    nr_count  = 1
+    #nr_count  = 1
     ring_size = 64
   }
 
