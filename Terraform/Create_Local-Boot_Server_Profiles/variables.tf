@@ -24,7 +24,7 @@ variable "name_prefix" {
 }
 
 
-variable "profile_names" {
+variable "server_name_to_profile_mapping" {
   type = map(any)
 }
 
