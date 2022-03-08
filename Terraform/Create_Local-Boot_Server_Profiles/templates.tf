@@ -86,4 +86,14 @@ resource "intersight_server_profile_template" "Server-Profile" {
     object_type = "organization.Organization"
     moid        = module.org_details.org_moid
   }
+  
+  assigned_server = [
+    {
+      moid                  = each.key
+      object_type           = "compute.Blade"
+      class_id              = "compute.Blade"
+      additional_properties = ""
+      selector              = ""
+  }]
+
 }

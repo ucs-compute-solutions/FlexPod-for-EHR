@@ -56,7 +56,7 @@ variable "description_of_storage_policy" {
   default = ""
 }
 
-#Boot Policy for Fibre Channel Boot
+#Boot Policy for Local Boot
 variable "boot_policy_name" {
 }
 

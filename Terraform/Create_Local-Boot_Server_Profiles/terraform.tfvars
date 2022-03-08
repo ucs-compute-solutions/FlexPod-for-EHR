@@ -14,12 +14,25 @@ name_prefix = "HC-TME"
 
 
 
-profile_names = {
-  profile1 = "App"
-  profile2 = "HYP"
-  profile3 = "ODB"
-  profile4 = "Report"
+#Specify the Server name to Server Profile mapping below
+/*  --EXAMPLE--
+server_name_to_profile_mapping = {
+AA04-6454-1-1     =  "IMM-Demo-ESXi-Host-1"
+AA04-6454-1-2     =  "IMM-Demo-ESXi-Host-2"
+AA04-6454-1-3     =  "IMM-Demo-ESXi-Host-3"
+AA04-6454-1-4     =  "IMM-Demo-ESXi-Host-4"
+AA04-6454-1-5     =  "IMM-Demo-ESXi-Host-5"
+AA04-6454-1-6     =  "IMM-Demo-ESXi-Host-6"
+AA04-6454-1-7     =  "IMM-Demo-ESXi-Host-7"
+AA04-6454-1-8     =  "IMM-Demo-ESXi-Host-8"
 }
+*/
+
+# Can Create any profile name desired. 
+server_name_to_profile_mapping = {
+  vdi-tme-1-5 = "Epic-Host-1-5"
+}
+
 
 # MAC Pool
 #For FI-A
