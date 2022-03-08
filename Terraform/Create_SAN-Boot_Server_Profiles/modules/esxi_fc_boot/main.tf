@@ -969,11 +969,11 @@ resource "intersight_vnic_fc_adapter_policy" "fc_adapter_policy" {
   resource_allocation_timeout = 10000
 
   rx_queue_settings {
-    nr_count  = 1
+    #nr_count  = 1
     ring_size = 64
   }
   tx_queue_settings {
-    nr_count  = 1
+    #nr_count  = 1
     ring_size = 64
   }
 
