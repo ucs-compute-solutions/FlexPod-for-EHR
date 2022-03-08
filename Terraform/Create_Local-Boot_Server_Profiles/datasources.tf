@@ -1,8 +1,3 @@
-data "intersight_iam_end_point_user" "local_user1" {
-}
-data "intersight_iam_end_point_role" "admin_role" {
-}
-
 module "org_details" {
   source            = "./modules/org_details"
   organization_name = var.organization_name
@@ -20,4 +15,9 @@ locals {
 data "intersight_compute_physical_summary" "data_src" {
   count = length(local.servers)
   name  = local.servers[count.index]
+}
+
+data "intersight_iam_end_point_user" "local_user1" {
+}
+data "intersight_iam_end_point_role" "admin_role" {
 }

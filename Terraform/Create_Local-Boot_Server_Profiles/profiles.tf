@@ -1,6 +1,6 @@
 
-resource "intersight_server_profile_template" "Server-Profile" {
-  for_each = local.profile_names
+resource "intersight_server_profile" "Server-Profile" {
+  for_each = local.server_moid_to_profile_mapping
   name     = each.value
 
   //Some issue with automatic dependency resolution during destroy - Will fix it later.

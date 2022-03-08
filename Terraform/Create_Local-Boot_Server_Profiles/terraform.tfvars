@@ -1,9 +1,10 @@
 # Enter API Key Information 
 # Need to clean up prior to publishing
 
-api_key      = "61256af57564612d339633f8/61256af57564612d339633fc/6222416e7564612d32e6eefe" 
+api_key      = "61256af57564612d339633f8/61256af57564612d339633fc/622793e57564612d32047a74" 
 api_key_file = "C:/Users/kecorkin/.ssh/SecretKey.txt"
 api_endpoint = "https://www.intersight.com"
+
 
 #Provide the name of Intersight Organization.
 organization_name = "TME-Testing"
@@ -29,8 +30,9 @@ AA04-6454-1-8     =  "IMM-Demo-ESXi-Host-8"
 */
 
 # Can Create any profile name desired. 
+# Server_name must match existing server name in Intersight
 server_name_to_profile_mapping = {
-  vdi-tme-1-5 = "Epic-Host-1-5"
+  HC-UCS-1-5 = "Epic-Host-1-5"
 }
 
 
