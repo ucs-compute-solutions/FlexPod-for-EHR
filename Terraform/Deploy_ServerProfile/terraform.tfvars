@@ -1,3 +1,11 @@
+# Enter API Key Information 
+# Need to clean up prior to publishing
+
+api_key      = "61256af57564612d339633f8/61256af57564612d339633fc/622793e57564612d32047a74" 
+api_key_file = "C:/Users/kecorkin/.ssh/SecretKey.txt"
+api_endpoint = "https://www.intersight.com"
+
+
 #Provide the name of Intersight Organization.
 organization_name = "TME-Testing"
 
@@ -21,15 +29,7 @@ AA04-6454-1-8     =  "IMM-Demo-ESXi-Host-8"
 
 # This does not mean you must Deploy or Unassign all. Can do sub-set.
 server_name_to_profile_mapping = {
-  HC-UCS-1-1 = "Epic-Host-1"
-  HC-UCS-1-2 = "Epic-Host-2"
-  HC-UCS-1-3 = "Epic-Host-3"
-  HC-UCS-1-4 = "Epic-Host-4"
-  HC-UCS-1-5 = "Epic-Host-5"
-  HC-UCS-1-6 = "Epic-Host-6"
-  HC-UCS-1-7 = "Epic-Host-7"
-  HC-UCS-1-8 = "Epic-Host-8"
-
+  HC-UCS-1-5 = "Epic-Host-1-5"
 }
 
 

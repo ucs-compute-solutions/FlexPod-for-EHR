@@ -105,6 +105,7 @@ resource "intersight_iam_end_point_user_role" "user_role1" {
 resource "intersight_boot_precision_policy" "boot_policy_for_fc_boot_from_san" {
   name        = var.boot_policy_name
   description = var.boot_policy_description
+  enforce_uefi_secure_boot = true
 
   configured_boot_mode = var.boot_mode
   boot_devices = var.boot_mode == "Uefi" ? [
