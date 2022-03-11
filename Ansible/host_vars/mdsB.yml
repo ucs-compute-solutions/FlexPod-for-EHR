@@ -3,7 +3,7 @@
 #
 #  Variables used to create port channel to UCS.
   port_channel_id: 15
-  port_channel_speed: "8000"
+  port_channel_speed: "32000"
   port_channel_description: "AA16-6454-B"
 #
 #  VSAN number to use used for a the fabric being created
@@ -32,6 +32,9 @@
     - device_name: "VM-Host-Infra-FCP-03-B"
       pwwn: "{{ ucs_host_03_b }}"
       dev_type: initiator
+    - device_name: "VM-Host-Infra-FCP-04-B"
+      pwwn: "{{ ucs_host_04_b }}"
+      dev_type: initiator
 #
   fc_nvme_device_alias_list:  # Add or remove UCS hosts as needed
     - device_name: "{{ svm_specs.svm_name }}-fc-nvme-lif-01b"
@@ -58,15 +61,15 @@
   storage_interface_list:
     - interface: "fc1/21"
       description: "AA16-A400-01:5b"
-      speed: "8000"  #8000/16000/32000
+      speed: "32000"  #32000/16000/32000
     - interface: "fc1/22"
       description: "AA16-A400-02:5b"
-      speed: "8000"  #8000/16000/32000
+      speed: "32000"  #32000/16000/32000
 #
   ucs_interface_list:
     - interface: "fc1/1"
       description: "AA16-6454-B:fc1/1"
-      speed: "8000"
+      speed: "32000"
     - interface: "fc1/2"
       description: "AA16-6454-B:fc1/2"
-      speed: "8000"  #8000/16000/32000
+      speed: "32000"  #32000/16000/32000
