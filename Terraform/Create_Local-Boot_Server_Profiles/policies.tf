@@ -1,6 +1,6 @@
 
-module "policies_for_esxi_fc_boot" {   # Need to rename this
-  source   = "./modules/esxi_fc_boot"
+module "policies_for_esxi_local_boot" {   # Need to rename this
+  source   = "./modules/esxi_local_boot"
   org_moid = module.org_details.org_moid
 
   #IMC Access Policy
