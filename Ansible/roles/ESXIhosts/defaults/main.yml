@@ -22,6 +22,3 @@ NetAppVAAI_offline_bundle_url: "http://10.10.30.5/software/NetApp/NetAppNasPlugi
 NetAppVAAI_filename: "NetAppNasPluginV2.0.zip"
 
 
-# !!!! Need to scrub these from the setup script !!!!
-#UCS_Tools_url: "http://10.1.156.150/software/UCS/ucs-tool-esxi_1.2.1-1OEM.zip"
-#UCS_Tools_filename: "ucs-tool-esxi_1.2.1-1OEM.zip"
