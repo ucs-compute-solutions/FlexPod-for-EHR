@@ -13,19 +13,27 @@
   tags:
     - ontap_cluster_location_update
 
+
 # Ensure that the auto-revert parameter is set for the cluster management interface
-- name: Ensure auto-revert is set for the cluster management interface
-  netapp.ontap.na_ontap_interface:
-    vserver: "{{cluster_name}}"
-    is_auto_revert: "{{cluster_mgmt_auto_revert}}"
-    interface_name: "{{cluster_mgmt_interface}}"
-    hostname: "{{inventory_hostname}}"
-    username: "{{username}}"
-    password: "{{password}}"
-    https: true
-    validate_certs: false
-  tags:
-    - ontap_config_cluster_mgmt
+#- name: Ensure auto-revert is set for the cluster management interface
+#  netapp.ontap.na_ontap_interface:
+#    vserver: "{{cluster_name}}"
+#    is_auto_revert: "{{cluster_mgmt_auto_revert}}"
+#    interface_name: "{{cluster_mgmt_interface}}"
+#    hostname: "{{inventory_hostname}}"
+#    username: "{{username}}"
+#    password: "{{password}}"
+#    https: true
+#    validate_certs: false
+#    use_rest: always
+#    interface_type: ip
+#    address: 10.29.132.120
+#    ipspace: Default
+#    home_port: e0M
+#    netmask: 255.255.255.0
+#    state: present
+#  tags:
+#    - ontap_config_cluster_mgmt
 
 # Getting total number of port count across all nodes in the ONTAP Cluster
 - name: Get the total number of port count across all nodes in the ONTAP Cluster
@@ -54,6 +62,7 @@
     password: "{{password}}"
     https: true
     validate_certs: false
+    ipspace: Default
   with_sequence: start=1 end="{{ total_port_count|int*2 }}" format=Default-%01x
   tags:
     - ontap_config_delete_broadcast_domain
