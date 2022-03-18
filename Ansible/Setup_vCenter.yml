@@ -22,12 +22,6 @@
 # If inventory does not contain any servers under esxi_fc or esxi_iscsi sections, the config will be skipped
 #
 ################################################################################
-- hosts: esxi_iscsi
-  gather_facts: no
-  serial: 1
-  roles:
-    - role: ESXIpostvC
-      when: configure_iscsi is defined
 
 - hosts: esxi_fc
   gather_facts: no
