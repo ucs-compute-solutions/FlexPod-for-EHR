@@ -2,7 +2,7 @@
 [ontap]
 10.29.132.120
 
-#vCenter Management IP. List only one vCenter IP. This is used by the playbooks for the ONTAP tools.
+#vCenter Management IP. List only one vCenter IP. 
 [vcenter]
 10.10.41.7 # CVD Environment
 
@@ -45,10 +45,6 @@ ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 # Comment out or delete all the hosts if ESXi hosts with FC connectivity are not present
 # FC host configuration will only take place if the variable configure_fc: "yes" is defined (not commended out)
 #
-#nx-esxi-1.flexpod.cisco.com vmotion_ip=192.168.0.21 vmotion_mask=255.255.255.0 nfs_ip=192.168.50.21 nfs_mask=255.255.255.0
-#nx-esxi-2.flexpod.cisco.com vmotion_ip=192.168.0.22 vmotion_mask=255.255.255.0 nfs_ip=192.168.50.22 nfs_mask=255.255.255.0
-#nx-esxi-3.flexpod.cisco.com vmotion_ip=192.168.0.23 vmotion_mask=255.255.255.0 nfs_ip=192.168.50.23 nfs_mask=255.255.255.0
-
 # e.g. 10.1.1.101  vmotion_ip=192.168.30.101  vmotion_mask=255.255.255.0 nfs_ip=192.168.50.101 nfs_mask=255.255.255.0
 # e.g. 10.1.1.102  vmotion_ip=192.168.30.102  vmotion_mask=255.255.255.0 nfs_ip=192.168.50.102 nfs_mask=255.255.255.0
 
