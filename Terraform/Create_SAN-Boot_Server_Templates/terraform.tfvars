@@ -1,25 +1,26 @@
 # Enter API Key Information 
-# Need to clean up prior to publishing
 
-api_key      = "61256af57564612d339633f8/61256af57564612d339633fc/622793e57564612d32047a74" 
-api_key_file = "C:/test/EFPCVD-CVD/SecretKey.txt"
+
+api_key      = "copy key here" 
+api_key_file = "path/to/SecretKey.txt"
 api_endpoint = "https://www.intersight.com"
 
 #Provide the name of Intersight Organization.
-organization_name = "X-Series"
+organization_name = "default"
 
 
 #Provide name to be prefixed for all pools and policies
-name_prefix = "HC"
+name_prefix = "IMM-Demo"
 
 
 
 profile_names = {
-  profile1 = "Epic-SAN"
-  #profile2 = "HYP-BfS"
-  #profile3 = "ODB-BfS"
-  #profile4 = "Reporting-BfS"
+  profile1 = "App"
+  profile2 = "HYP"
+  profile3 = "ODB"
+  profile4 = "Report"
 }
+
 
 # MAC Pool
 #For FI-A
@@ -35,7 +36,7 @@ vlan_for_cimc_access = 41
 
 # IP Pool (IB-MGT)
 ip_pool_start_for_management_access   = "10.10.41.50"
-size_of_ip_pool_for_management_access = 12
+size_of_ip_pool_for_management_access = 64
 gateway_mgmt                          = "10.10.41.1"
 netmask_mgmt                          = "255.255.255.0"
 primary_dns_mgmt                      = "10.10.40.4"
@@ -65,7 +66,7 @@ nvme_pool_size_on_fi_b  = 64
 
 # Local User Information
 local_user_name = "Admin"
-local_user_pass = "C1sco!23"
+local_user_pass = "PASSWORD"
 
 
 #Boot Policy for Fibre Channel Boot
@@ -102,13 +103,13 @@ mtu = 9000
 
 
 #Network Group Policy - VLAN details of vNICs assigned to virtual switches for Management and NFS VLANs
-native_vlan_for_mgmt_vnic   = 1
-allowed_vlans_for_mgmt_vnic = "1,40-44"
+native_vlan_for_mgmt_vnic   = 2
+allowed_vlans_for_mgmt_vnic = "2,40-44"
 
 
 #Network Group Policy - VLANs details of vNIC assigned to VDS for  vMotion and traffic VLANs
-native_vlan_for_vnic_assigned_for_VDS   = 1
-allowed_vlans_for_vnic_assigned_for_VDS = "1,40-44"
+native_vlan_for_vnic_assigned_for_VDS   = 2
+allowed_vlans_for_vnic_assigned_for_VDS = "2,40-44"
 
 
 #Fibre Channel Network policy: SAN-A

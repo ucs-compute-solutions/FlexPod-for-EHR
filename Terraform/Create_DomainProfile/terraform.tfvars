@@ -1,20 +1,20 @@
 # Enter API Key Information 
-# Need to clean up prior to publishing
 
-api_key      = "61256af57564612d339633f8/61256af57564612d339633fc/622793e57564612d32047a74" 
-api_key_file = "C:/Users/kecorkin/.ssh/SecretKey.txt"
+
+api_key      = "copy key here" 
+api_key_file = "path/to/SecretKey.txt"
 api_endpoint = "https://www.intersight.com"
 
 
 #Provide the name of Intersight Organization.
-organization_name = "TME-Testing"
+organization_name = "default"
 
 
 #Provide name to be prefixed for all the policies of Domain Profile
-name_prefix = "HC"
+name_prefix = "IMM-Demo"
 
 #Name of UCS Domain Profile
-name_of_ucs_domain_profile = "HC-TME"
+name_of_ucs_domain_profile = "IMM-Demo"
 
 
 #Provide the FI details which is in IMM
@@ -32,7 +32,7 @@ fc_port_id_end_on-fi-a                 = 4
 slot_id_of_switch_for_fc_ports_on-fi-a = 1
 
 #Cofigure Server Ports
-list_of_server_ports_on-fi-a               = [17]
+list_of_server_ports_on-fi-a               = [17,18,19,20]
 slot_id_of_switch_for_server_ports_on-fi-a = 1
 
 #Configure Ethernet uplink port-channel on the collection of ports
@@ -43,8 +43,8 @@ slot_id_of_ports_for_ethernet_uplink_on-fi-a         = 1
 
 
 #Configure FC uplink port-channel on the collection of ports
-list_of_ports_for_fc_uplink_on-fi-a            = [1, 2]
-admin_speed_for_fc_uplink_port_channel_on-fi-a = "8Gbps" # Values = 8Gbps, 16Gbps, 32Gbps
+list_of_ports_for_fc_uplink_on-fi-a            = [1,2,3,4]
+admin_speed_for_fc_uplink_port_channel_on-fi-a = "32Gbps" # Values = 8Gbps, 16Gbps, 32Gbps
 port_channel_id_for_fc_uplink_on-fi-a          = 111
 correspnding_vsan_id_on-fi-a                   = 111
 slot_id_of_ports_for_fc_uplink_on-fi-a         = 1
@@ -58,7 +58,7 @@ fc_port_id_end_on-fi-b                 = 4
 slot_id_of_switch_for_fc_ports_on-fi-b = 1
 
 #Cofigure Server Ports
-list_of_server_ports_on-fi-b               = [17]
+list_of_server_ports_on-fi-b               = [17,18,19,20]
 slot_id_of_switch_for_server_ports_on-fi-b = 1
 
 #Configure Ethernet uplink port-channel on the collection of ports
@@ -70,7 +70,7 @@ slot_id_of_ports_for_ethernet_uplink_on-fi-b         = 1
 
 #Configure FC uplink port-channel on the collection of ports
 list_of_ports_for_fc_uplink_on-fi-b            = [1, 2]
-admin_speed_for_fc_uplink_port_channel_on-fi-b = "8Gbps"  # Values = 8Gbps, 16Gbps, 32Gbps
+admin_speed_for_fc_uplink_port_channel_on-fi-b = "32Gbps"  # Values = 8Gbps, 16Gbps, 32Gbps
 port_channel_id_for_fc_uplink_on-fi-b          = 112
 correspnding_vsan_id_on-fi-b                   = 112
 slot_id_of_ports_for_fc_uplink_on-fi-b         = 1
@@ -79,7 +79,7 @@ slot_id_of_ports_for_fc_uplink_on-fi-b         = 1
 
 #Configuration details for all VLANs in Fabric Interconnects
 #Specify the native vlan id
-native_vlan = 1
+native_vlan = 2
 
 #Specify the VLAN Name and VLAN ID like below
 /*  --EXAMPLE--
@@ -94,8 +94,8 @@ nfs             = 3050
 */
 
 vlan_details_for_fabric_interconnects = {
-  Native-VLAN  = 1
-  mgmt-oob     = 264
+  Native-VLAN  = 2
+  mgmt-oob     = 40
   mgmt-inband  = 41
   vm-vlan      = 44
   vmotion-vlan = 43
