@@ -19,7 +19,7 @@
   with_nested:
     - "{{ node_aggr_lif_map }}"
     - "{{ svm_specs.data_volumes }}"
-  #when: item.0.aggr_name == item.1.residing_aggr
+  when: item.0.aggr_name == item.1.residing_aggr
   tags:
     - nfs_ds_lif_map
 
@@ -30,6 +30,6 @@
   with_nested:
     - "{{ node_aggr_lif_map }}"
     - "{{ svm_specs.swap_volumes }}"
-  #when: item.0.aggr_name == item.1.residing_aggr
+  when: item.0.aggr_name == item.1.residing_aggr
   tags:
     - swap_ds_lif_map

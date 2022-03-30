@@ -13,16 +13,9 @@
   - include_tasks: create_esxi_oob_mgmt_PG.yml
 # Create the NFS Portgroup
   - include_tasks: create_esxi_nfs_PG.yml
-# Create NFS VMK                                    ## Not sure about this - We need FC-FVME
+# Create NFS VMK                                    
   - include_tasks: add_esxi_nfs_vmk.yml
 # Add NFS Datastores
   - include_tasks: add_esxi_nfs_datastores.yml
 # Set ESXi Power Management Policy to High-Performance
   - include_tasks: set_esxi_powermgmt_policy.yml
-# Upgrade or Install VIC Drivers and  NetApp NFS VAAI Plugin
-#  - include_tasks: upgrade_ESXi_drivers.yml
-#
-
-# Update drivers is currently troublesome
-# esxcli network nic get -n vmnic0
-# esxcli storage san fc list

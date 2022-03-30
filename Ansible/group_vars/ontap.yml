@@ -2,5 +2,5 @@
 # These dont have to be explicitly imported by the var_files: they are autopopulated
 # Credentials for connecting to the ONTAP cluster 
 username: admin
-password: Netapp!23
+password: <password> 
  
