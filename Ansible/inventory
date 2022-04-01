@@ -39,7 +39,7 @@ ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 [esxi_fc]
 #
 # Comment out or delete all the hosts if ESXi hosts with FC connectivity are not present
-# FC host configuration will only take place if the variable configure_fc: "yes" is defined (not commended out)
+# FC host configuration will only take place if the variable configure_fc: "yes" is defined (not comment out)
 #
 nx-esxi-1.flexpod.cisco.com vmotion_ip=192.168.0.21 vmotion_mask=255.255.255.0 nfs_ip=192.168.50.21 nfs_mask=255.255.255.0
 nx-esxi-2.flexpod.cisco.com vmotion_ip=192.168.0.22 vmotion_mask=255.255.255.0 nfs_ip=192.168.50.22 nfs_mask=255.255.255.0
