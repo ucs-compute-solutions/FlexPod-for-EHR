@@ -16,10 +16,8 @@
 ################################################################################
 #
 # Hosts Setup Section
-# ESXIhosts role configuration is common to both iSCSI and FC hosts
-# ESXIiscsi role configuration is only applied to the iSCSI hosts
-# If configure_fc or configure_iscsi are commented out, the host config will be skipped
-# If inventory does not contain any servers under esxi_fc or esxi_iscsi sections, the config will be skipped
+# If configure_fc is commented out, the host config will be skipped
+# If inventory does not contain any servers under esxi_fc section, the config will be skipped
 #
 ################################################################################
 
