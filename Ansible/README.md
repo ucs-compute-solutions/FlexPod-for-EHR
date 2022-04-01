@@ -1,6 +1,6 @@
 # Set up the Ansible execution environment
 
-To execute various ansible playbooks, a linux based system will need to be setup as described in the CVD with the packages listed at the following pages:
+To execute various Ansible playbooks, a linux based system will need to be setup as described in the CVD with the packages listed at the following pages:
 
 - Cisco NxOS: https://galaxy.ansible.com/cisco/nxos
 - NetApp ONTAP: https://galaxy.ansible.com/netapp/ontap
@@ -14,7 +14,7 @@ Because a number of manual tasks need to be executed between running the Ansible
 
 The steps for setting up a FlexPod with Fibre Channel boot and FC-NVMe and NFS storage protocols are:
 
-- Create a directory and clone the repository from Github with "git clone GIT_REP_NAME".
+- Create a directory and clone the repository from Github with "git clone GIT_REPO_NAME".
 - Fill in the variable files according to the CVD.
 - Follow the manual steps in the CVD to set up the Nexus switches on the network and ssh into each switch.
 
@@ -23,15 +23,15 @@ The steps for setting up a FlexPod with Fibre Channel boot and FC-NVMe and NFS s
 - Follow the manual steps in the CVD to add timezone information to the Nexus switches.
 
 ### Initial NetApp Storage configuration 
-- Follow the manual steps in the CVD to get the NetApp storage cluster on the network.
-- Execute the NetApp storage playbook with "`ansible-playbook -i inventory Setup_ONTAP.yml -t ontap_config_part_1`".
-- Query the fibre channel and FC-NVMe LIF WWPNs and add to the "group_vars/all.yml" file.
+- Follow the manual steps in the CVD to get the NetApp ONTAP storage cluster on the network.
+- Execute the NetApp ONTAP storage playbook with "`ansible-playbook -i inventory Setup_ONTAP.yml -t ontap_config_part_1`".
+- Query the fibre channel and FC-NVMe LIFs WWPNs and add to the "group_vars/all.yml" file.
 
 ### UCS X-Series server configuration 
 Configuration of the UCS X-Series servers can be completed utilizing the Terraform scripts included in this repository, or by following the manual steps in the CVD.
 
 ### Configurre MDS Switches  
-- Query the ESXi host initiator WWPNs for both fibre channel and FC-NVMe interfaces and add to the "all.yml" file.
+- Query the ESXi host initiator WWPNs for both fibre channel and FC-NVMe interfaces and add to the "group_vars/all.yml" file.
 - Follow the manual steps in the CVD to set up the MDS switches on the network and ssh into each switch.
 - Execute the MDS playbook with "`ansible-playbook ./Setup_MDS.yml -i inventory"`.
 - Follow the manual steps in the CVD to add timezone information to the MDS switches.
