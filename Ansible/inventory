@@ -1,19 +1,19 @@
 #ONTAP Cluster Management IP. List only one ONTAP cluster IP.
 [ontap]
-#e.g 10.29.132.120
-
-#vCenter Management IP. List only one vCenter IP. 
-[vcenter]
-# e.g. 10.10.41.7 
+10.29.132.120
 
 [nexus]
 
+n9kA ansible_host=192.168.156.135 ansible_user=admin ansible_password=<password> ansible_network_os=nxos
+n9kB ansible_host=192.168.156.136 ansible_user=admin ansible_password=<password> ansible_network_os=nxos
 
 # e.g. n9kA ansible_host=192.168.1.2 ansible_user=admin ansible_password=cisco!23 ansible_network_os=nxos
 # e.g. n9kB ansible_host=192.168.1.3 ansible_user=admin ansible_password=cisco!23 ansible_network_os=nxos
 
 [mds]
 
+mdsA ansible_host=192.168.156.133 ansible_user=admin ansible_password=<password> ansible_network_os=nxos
+mdsB ansible_host=192.168.156.134 ansible_user=admin ansible_password=<password> ansible_network_os=nxos
 
 # e.g. mdsA ansible_host=192.168.1.4 ansible_user=admin ansible_password=cisco!23 ansible_network_os=nxos
 # e.g. mdsB ansible_host=192.168.1.5 ansible_user=admin ansible_password=cisco!23 ansible_network_os=nxos
@@ -26,10 +26,9 @@
 # The VMware vCenter connectivity information is defined in group_vars/all.yml using following variables:
 # vcenter_hostname, vcenter_username, vcenter_password
 #
-# The ESXi host username and password is also defined (copied) in roup_vars/all.yml esxi_username and esxi_password
+# The ESXi host username and password is also defined (copied) in group_vars/all.yml esxi_username and esxi_password
 #
 esxi_fc
-
 
 [vmware:vars]
 ansible_connection=ssh
@@ -42,7 +41,9 @@ ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 # Comment out or delete all the hosts if ESXi hosts with FC connectivity are not present
 # FC host configuration will only take place if the variable configure_fc: "yes" is defined (not commended out)
 #
+nx-esxi-1.flexpod.cisco.com vmotion_ip=192.168.0.21 vmotion_mask=255.255.255.0 nfs_ip=192.168.50.21 nfs_mask=255.255.255.0
+nx-esxi-2.flexpod.cisco.com vmotion_ip=192.168.0.22 vmotion_mask=255.255.255.0 nfs_ip=192.168.50.22 nfs_mask=255.255.255.0
+nx-esxi-3.flexpod.cisco.com vmotion_ip=192.168.0.23 vmotion_mask=255.255.255.0 nfs_ip=192.168.50.23 nfs_mask=255.255.255.0
+
 # e.g. 10.1.1.101  vmotion_ip=192.168.30.101  vmotion_mask=255.255.255.0 nfs_ip=192.168.50.101 nfs_mask=255.255.255.0
 # e.g. 10.1.1.102  vmotion_ip=192.168.30.102  vmotion_mask=255.255.255.0 nfs_ip=192.168.50.102 nfs_mask=255.255.255.0
-
-
