@@ -11,7 +11,6 @@
   serial: 1
   vars_files:
     - vars/ontap_main.yml
-    - group_vars/vcenter.yml
   roles:
     - role: ESXIhosts
       when: configure_fc is defined
