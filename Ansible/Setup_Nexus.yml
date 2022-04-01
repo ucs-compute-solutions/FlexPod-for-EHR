@@ -1,6 +1,5 @@
 ---
-# This Playbook uses roles to
-# setup Nexus switches
+# This Playbook uses roles to setup Nexus switches
 # After executing this playbook, Nexus switches should be configured
 #
 - hosts: nexus
