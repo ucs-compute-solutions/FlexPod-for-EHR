@@ -48,13 +48,13 @@ Configuration of the UCS X-Series servers can be completed utilizing the Terrafo
 - Follow the manual steps in the CVD to complete setting up vCenter and the ESXi hosts.
 
 ### NetApp Storage configuration part 3
+- Add the ESXi host NQNs to "`vars/ontap_main.yml`"
 - Execute the NetApp storage playbook with "`ansible-playbook -i inventory Setup_ONTAP.yml -t ontap_config_part_3`" to setup FC-NVMe.
 - Execute the manual steps in the CVD to complete the FC-NVMe setup.
-- Execute the NetApp ONTAP tools playbook with "`ansible-playbook -i inventory Setup_ONTAP_tools.yml`" to install the ONTAP Tools VM.
 
 ### Finalize installation
-- Follow the manual steps in the CVD to finish setting up ONTAP tools and the rest of the FlexPod management cluster, including an optional Ansible setup of NetApp AIQUM.
-- Execute the manual steps in the CVD to add the Cisco UCS Manager Plug-in for VMware vSphere Web Client.
+- Follow the manual steps in the CVD to finish setting up FlexPod Management Tools like Cisco UCS Manager Plug-in for VMware vSphere Web Client, NetApp ONTAP Tools and NetApp AIQUM. 
+- The CVD also mentions automated deployment of NetApp ONTAP Tools and AIQUM using Ansible.
 
 The Ansible playbooks and CVD are structured in a way that a Fibre Channel Boot or Fibre Channel Boot with FC-NVMe FlexPod configuration can be setup by adjusting the variables. 
 
