@@ -95,7 +95,6 @@ If you would like to run a part of the deployment, you may use the appropriate t
 
 	ansible-playbook -i inventory Setup_ONTAP.yml -t <tag_name>
 	
-
 ### Authors
 
  * Kamini Singh (kamini.singh@netapp.com) 
