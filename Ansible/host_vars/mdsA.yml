@@ -79,4 +79,3 @@
     - interface: "fc1/4"
       description: "HC-6454-A:fc1/4"
       speed: "32000"
-      
