@@ -8,13 +8,13 @@ To execute various ansible playbooks, a linux based system will need to be setup
 
 # How to execute these playbooks?
 
-![block-diagram](../images/Automation_Workflow.jpg)  
+![block-diagram](../images/Ansible-Order.png)  
 
 Because a number of manual tasks need to be executed between running the Ansible playbooks, the CVD document should be used as a guide for running the playbooks. Commentary is included in the variable files to guide filling in those values.
 
 The steps for setting up a FlexPod with Fibre Channel boot and FC-NVMe and NFS storage protocols are:
 
-- Create a directory and clone the repository from Github with "git clone GIT_REP_NAME".
+- Create a directory and clone the repository from Github with `git clone !!!!GIT_REP_NAME!!!!`
 - Fill in the variable files according to the CVD.
 - Follow the manual steps in the CVD to set up the Nexus switches on the network and ssh into each switch.
 
@@ -53,8 +53,10 @@ Configuration of the UCS X-Series servers can be completed utilizing the Terrafo
 - Execute the NetApp ONTAP tools playbook with "`ansible-playbook -i inventory Setup_ONTAP_tools.yml`" to install the ONTAP Tools VM.
 
 ### Finalize installation
-- Follow the manual steps in the CVD to finish setting up ONTAP tools and the rest of the FlexPod management cluster, including an optional Ansible setup of NetApp AIQUM.
-- Execute the manual steps in the CVD to add the Cisco UCS Manager Plug-in for VMware vSphere Web Client.
+- Follow the manual steps in the CVD to finish setting up ONTAP tools and the rest of the FlexPod management cluster, including an optional Ansible setup of NetApp AIQUM and SnapCenter.
 
-The Ansible playbooks and CVD are structured in a way that a Fibre Channel Boot or Fibre Channel Boot with FC-NVMe FlexPod configuration can be setup by adjusting the variables. 
+Repositories for installing ONTAP Management Tools are maintained in the following repositories;
 
+- [ONTAP Tools for VMware vSphere](https://github.com/NetApp-Automation/ONTAP-Tools-for-VMware-vSphere)
+- [NetApp AIQUM](https://github.com/NetApp-Automation/NetApp-AIQUM) 
+- [SnapCenter Plug-in for VMware vSphere](https://github.com/NetApp-Automation/SnapCenter-Plug-in-for-VMware-vSphere)
