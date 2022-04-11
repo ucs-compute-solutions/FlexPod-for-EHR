@@ -13,10 +13,6 @@ The ONTAP deployment automation is based on the following roles:
 	ontap_nvme
 	ontap_finalize_setup
 
-The ONTAP Tools for VMware vSphere (previously VSC) deployment is based on the following role and is available in the 'roles' directory of this repository:
-
-	ontap_tools-config
-
 These roles are developed as per the best practices prescribed in the Cisco Validated Design (CVD) "FlexPod Datacenter with Cisco UCS M6, VMware 7.0 U2 and NetApp ONTAP 9.9".
 
 ### Environment Validated
@@ -24,7 +20,7 @@ These roles are developed as per the best practices prescribed in the Cisco Vali
 As the automation solution is specifically build for the above mentioned CVD, the current roles and playbooks support the following components:
 
 	Storage Operating System: ONTAP 9.8 and 9.9
-	Storage Protocols: iSCSI, NFS and NVMe
+	Storage Protocols: NFS, FCP, and NVMe
 	VMware vSphere: 7.0 U2
 
 ### Prerequisite
@@ -40,9 +36,6 @@ Refer https://docs.ansible.com/ansible/latest/installation_guide/intro_installat
 ```
 pip3 install netapp-lib
 ansible-galaxy collection install netapp.ontap
-pip3 install pyvmomi
-ansible-galaxy collection install community.vmware
-pip3 install -r ~/.ansible/collections/ansible_collections/community/vmware/requirements.txt
 ```
 
 ### Getting Started
@@ -53,7 +46,7 @@ pip3 install -r ~/.ansible/collections/ansible_collections/community/vmware/requ
 git clone https://github.com/ucs-compute-solutions/FlexPod-UCSM-M6.git
 ```
 
-2. There are two variable files under the vars folder 'ontap_main.yml' for setup of ONTAP and 'ontap_tools_main.yml' for setup of ONTAP tools, that need to be filled out with environment specific parameters prior to executing the playbook.
+2. There is one variable file under the vars folder 'ontap_main.yml' for setup of ONTAP, that needs to be filled out with environment specific parameters prior to executing the playbook.
 
 3. This playbook to setup ONTAP will also use some common parameters defined in the all.yml variable file under group_vars, please ensure that the all.yml file is up to date. 
 
@@ -61,7 +54,7 @@ NOTE: The format of the variable file needs to be maintained as it is, any chang
 
 NOTE: Sample values are pre-populated against some variables in order to provide the user additional clarity on how the variable needs to be filled out. Please replace the sample values with your environment specific information.
 
-3. Update the credentials for the ONTAP Cluster and VMware vCenter
+4. Update the credentials for the ONTAP Cluster
 
 Navigate to the 'ontap' file within the 'group_vars' directory and update it with the admin credentials for the ONTAP cluster 
 
@@ -71,17 +64,9 @@ Example -
 	username: admin
 	password: password
 
-Navigate to the 'vcenter' file within the 'group_vars' directory and update it with the admin credentials for VMware vCenter
+5. Update the Inventory file
 
-Example -
-
-	# This variable file is used by the playbooks for the ONTAP tools
-	vcenter_username: "administrator@vsphere.local"
-	vcenter_password: "password"
-
-4. Update the Inventory file
-
-Open the 'inventory' file and update it with a record for the ONTAP Cluster Management IP and vCenter IP
+Open the 'inventory' file and update it with a record for the ONTAP Cluster Management IP
 
 Example -
 
@@ -90,11 +75,7 @@ Example -
 	# ONTAP Cluster Management IP, list only one ONTAP Cluster IP
 	192.168.10.5
 
-	[vcenter]
-	# vCenter Management IP. List only one vCenter IP. This is used by the playbooks for ONTAP tools.
-	192.168.10.10
-
-5. Executing the Playbook
+6. Executing the Playbook
 
 A playbook by name 'Setup_ONTAP.yml' is available at the root of this repository. It calls all the required roles to complete the setup of the ONTAP storage system.
 
@@ -114,11 +95,6 @@ If you would like to run a part of the deployment, you may use the appropriate t
 
 	ansible-playbook -i inventory Setup_ONTAP.yml -t <tag_name>
 	
-Another playbokk by name 'Setup_ONTAP_tools' is available at the root of this repository. It call the appropriate roles to complete the setup of ONTAP Tools for VMware. 
-
-	ansible-playbook -i inventory Setup_ONTAP_tools.yml
-
 ### Authors
 
- * Arvind Ramakrishnan (arvind.ramakrishnan@netapp.com)
  * Kamini Singh (kamini.singh@netapp.com) 

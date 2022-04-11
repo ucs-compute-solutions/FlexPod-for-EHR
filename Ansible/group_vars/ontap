@@ -3,4 +3,3 @@
 # Credentials for connecting to the ONTAP cluster 
 username: admin
 password: <password> 
- 

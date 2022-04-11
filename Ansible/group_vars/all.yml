@@ -20,6 +20,7 @@ ntp_servers:
 ib_mgmt_ntp_servers:                # InBand Management NTP Addresses to be used by ESXi hosts and VMs
   - ip_address: "10.10.40.1"
   - ip_address: "10.10.41.1"
+  
 # Update the the following lines to setup DNS Server(s)
 dns_servers:
   - ip_address: "10.10.40.4"
@@ -166,7 +167,7 @@ ucs_host_04_a: '20:00:00:25:b5:fc:0a:03'
 ucs_host_04_b: '20:00:00:25:b5:fc:0b:03'
 #
 #
-# UCS NVMe WWPNs (capture from the UCS Service Profiles)
+# UCS FC-NVMe WWPNs (capture from the UCS Service Profiles)
 #
 ucs_nvme_01_a: '20:00:00:25:b5:e1:0a:00'
 ucs_nvme_01_b: '20:00:00:25:b5:e1:0b:00'
@@ -199,14 +200,13 @@ vcenter_hostname: "vcenter.hc.cvd"
 # e.g. vcenter_hostname: 10.50.160.100
 vcenter_username: "administrator@vsphere.local"               
 # e.g. vcenter_username: administrator@vsphere.local
-vcenter_password: "C1sco!23"
+vcenter_password: <password>
 # e.g. vcenter_password: "cisco!23"
 #
 # DVS Parameters; use version 7.0.2 for VMware 7.0U2 or above
 #
-#dvs_name: "vDS0"
 dvs_name: "Epic_vDS"
-dv_version: "7.0.0"
+dv_version: "7.0.2"
 dv_uplink: "2"
 dv_protocol: "lldp"
 dv_operation: "both"

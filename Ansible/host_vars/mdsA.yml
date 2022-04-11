@@ -64,18 +64,18 @@
       speed: "32000"  #8000/16000/32000
     - interface: "fc1/22"
       description: "AA16-A400-02:5a"
-      speed: "32000"  #8000/16000/32000
+      speed: "32000" 
 #
   ucs_interface_list:
     - interface: "fc1/1"
       description: "HC-6454-A:fc1/1"
-      speed: "32000"  #8000/16000/32000
+      speed: "32000" 
     - interface: "fc1/2"
       description: "HC-6454-A:fc1/2"
-      speed: "32000"  #8000/16000/32000
+      speed: "32000" 
     - interface: "fc1/3"
       description: "HC-6454-A:fc1/3"
-      speed: "32000"  #8000/16000/32000
+      speed: "32000"  
     - interface: "fc1/4"
       description: "HC-6454-A:fc1/4"
-      speed: "32000"  #8000/16000/32000
+      speed: "32000"
