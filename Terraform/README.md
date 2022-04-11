@@ -24,39 +24,24 @@ To use the Cisco Intersight provider, you need an API key, a secret key, and the
 - Save the private key information in a .pem file. Save it in a location in the downloaded repository.
 
 
-### Define the Cisco Intersight provider
 
-Each of the directories contain a file named `provider.tf`. Update this file with  API key ID and Secret Key file. The endpoint changes if you are using  Cisco Intersight appliance.
-
-```
-provider "intersight" {
-  apikey    = "Your Intersight API Key ID"
-  secretkey = "Intersight Secret Key File (SecretKey.txt)"
-  endpoint  = "www.intersight.com"
-}
-```
 
 
 
 ### Workflows
 
-Converged Infrastructure stack in Intersight Managed Mode is deployed in multiple phases. It involves below steps in order.
+We created multiple directories to logically separate each function. Each of these directories are stand-alone, and define Terraform configuration files, required modules, inputs and outputs as required. All you need to do is input your configuration in the *terraform.tfvar* file in each of the directories and then apply the terraform configuration in sequence.  
+<br />
+>NOTE: If you are not using a deployment method (e.g. creating templates) you can delete the unused folders. 
 
-1. Configure UCS Domain Policies
-2. Configure UCS Domain Profiles
-3. Deploy UCS Domain Profile
-4. Configure pools like MAC, IP, WWN, IQN
-4. Configure UCS Server Policies
-5. Configure UCS Server Templates
-6. Derive UCS Server Templates to create server profiles
-7. Associating profiles to physical servers.
+![Terraform Flow Diagram](../images/TF_Flow.png)
 
 
-> We created multiple directories to logically separate each function. Each of these directories define Terraform configuration files, required modules, input it takes and the output. All you need to do is, input your configuration in the *terraform.tfvar* file in each of the directories and then apply the terraform configuration in sequence.
  
 <br />
 <br />
 
+### Domain Profile 
 
 `Create_DomainProfile`
 
@@ -69,30 +54,31 @@ You need to input Domain related configuration in terraform.tfvars file defined 
 `Deploy_DomainProfile`
 
 This directory defines Terraform configuration for applying actions like Deploy domain profile or Unassign already assigned domain profile. 
-Action configuration can be defined in terraform.tfvars file defined in this directory.
+Action configuration can be defined in terraform.tfvars file defined in this directory. This action can also be performed manually.
 
 
 <br />
 
+### Server Profiles  
 
-## Create Server Templates 
+Apply Terraform configurations from **any one of the directories**. All directories create Pools, Policies and Profiles required for UCS Servers.  
 
-If you are configuring Fibre Channel SAN Boot in your EPIC stack, then configure each parameter required in `Create_FC_ServerProfile/`.
+#### Create Server Templates 
 
-
-If you are configuring Local (M.2) Boot in your EPIC stack, then configure each parameter required in `Create_Local_ServerProfile/` 
-
-
-
-Apply Terraform configurations from **any one of the directories**. Both directories create Pools, Policies and Profiles required for UCS Servers. 
+If you are configuring Fibre Channel SAN Boot in your EPIC stack, then configure each parameter required in `Create_SAN-Boot_Server_Templates/`.
 
 
-<br />
+If you are configuring Local (M.2) Boot in your EPIC stack, then configure each parameter required in `Create_Local-Boot_Server_Templates/` 
+
+Once the templates are created, you must manually derive and apply Server Profiles
 
 
-`Deploy_ServerProfile`
+#### Create Server Profiles
 
-This directory defines Terraform configuration for associating server profiles with servers. 
+If you are configuring Fibre Channel SAN Boot in your EPIC stack, then configure each parameter required in `Create_SAN-Boot_Server_Profiles/`.
+
+
+If you are configuring Local (M.2) Boot in your EPIC stack, then configure each parameter required in `Create_Local-Boot_Server_Profiles/`. This directory defines Terraform configuration for associating server profiles with servers. 
 You can change the configuration in terraform.tfvars file to Disassociate a server profile. 
 
 
@@ -129,7 +115,7 @@ Once the Terraform script has completed, all the necessary policies and profiles
 <p>
 Just to summarize, in each of the directories:
   <br />
-(X) Update "provider.tf" file with provider configuration
+(X) Chose the type of deployment (Templates or Profiles) you wish to use, and the boot method (SAN-boot or Local-Boot). Remove uneeded directories. 
   <br />
 (X) Update "terraform.tfvars" file with required configuration
   <br />

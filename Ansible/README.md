@@ -8,7 +8,7 @@ To execute various Ansible playbooks, a linux based system will need to be setup
 
 # How to execute these playbooks?
 
-![block-diagram](../images/Automation_Workflow.jpg)  
+![block-diagram](../images/Ansible-Order.png)  
 
 Because a number of manual tasks need to be executed between running the Ansible playbooks, the CVD document should be used as a guide for running the playbooks. Commentary is included in the variable files to guide filling in those values.
 
@@ -53,8 +53,10 @@ Configuration of the UCS X-Series servers can be completed utilizing the Terrafo
 - Execute the manual steps in the CVD to complete the FC-NVMe setup.
 
 ### Finalize installation
-- Follow the manual steps in the CVD to finish setting up FlexPod Management Tools like Cisco UCS Manager Plug-in for VMware vSphere Web Client, NetApp ONTAP Tools and NetApp AIQUM. 
-- The CVD also mentions automated deployment of NetApp ONTAP Tools and AIQUM using Ansible.
+- Follow the manual steps in the CVD to finish setting up ONTAP tools and the rest of the FlexPod management cluster, including an optional Ansible setup of NetApp AIQUM and SnapCenter.
 
-The Ansible playbooks and CVD are structured in a way that a Fibre Channel Boot or Fibre Channel Boot with FC-NVMe FlexPod configuration can be setup by adjusting the variables. 
+Repositories for installing ONTAP Management Tools are maintained in the following repositories;
 
+- [ONTAP Tools for VMware vSphere](https://github.com/NetApp-Automation/ONTAP-Tools-for-VMware-vSphere)
+- [NetApp AIQUM](https://github.com/NetApp-Automation/NetApp-AIQUM) 
+- [SnapCenter Plug-in for VMware vSphere](https://github.com/NetApp-Automation/SnapCenter-Plug-in-for-VMware-vSphere)

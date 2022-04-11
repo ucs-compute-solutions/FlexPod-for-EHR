@@ -8,14 +8,27 @@ The CVD lays out the complete process for configuring the FlexPod using Ansible 
 
 ![block-diagram](./images/Architecture.png)  
 
-## Workflow  
 
-The automation is split between Ansible and Terraform as shown in the following digram:
+## Automation 
+The automation is split between Ansible and Terraform as shown in the following digram;
 
 ![](images/Automation.png)
 
-Ansible scripts are contained in the Ansible Directory. Terraform scripts are in the Terraform directory. Each directory has a more detailed description of the steps required for completion. 
+- The Ansible scripts are contained in the Ansible Directory. 
+- Terraform scripts are in the Terraform directory.   
 
+Each directory has a more detailed description of the steps required for completion. 
 
+## Workflow  
 
-![](./images/High_Level_Flow.png) 
+The overall flow of automating the installation using these tools is shown in the following diagram;
+
+![](./images/High-Level_Flow.png) 
+
+## External Repositories 
+
+Repositories for installing ONTAP Management Tools are maintained in the following repositories;
+
+- [ONTAP Tools for VMware vSphere](https://github.com/NetApp-Automation/ONTAP-Tools-for-VMware-vSphere)
+- [NetApp AIQUM](https://github.com/NetApp-Automation/NetApp-AIQUM) 
+- [SnapCenter Plug-in for VMware vSphere](https://github.com/NetApp-Automation/SnapCenter-Plug-in-for-VMware-vSphere)
