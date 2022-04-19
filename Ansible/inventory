@@ -1,6 +1,6 @@
 #ONTAP Cluster Management IP. List only one ONTAP cluster IP.
 [ontap]
-10.29.132.120
+10.29.132.121
 
 [nexus]
 
