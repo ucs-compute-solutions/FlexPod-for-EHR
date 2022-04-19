@@ -12,6 +12,10 @@ configure_fc_nvme: "yes"
 #
 configure_nfs: "yes"
 #
+# Commenting out the configure_cifs will skip the CIFS related configuration
+#
+configure_cifs: "yes"
+#
 # Update the the following lines to setup NTP Server(s)
 # Note that we are setting up NTP Distribution on the Nexus switches and these are the two Nexus mgmt0 IP addresses that will be used for the other FlexPod equipment.
 ntp_servers:
@@ -41,6 +45,7 @@ ib_vlan_name: 'IB-MGMT' # IN BAND Management VLAN
 vm_vlan_name: 'VM-Traffic' # VLAN to carry VM traffic on VDS
 vmotion_vlan_name: 'vMotion' # vMotion VLAN
 nfs_vlan_name: 'Infra-NFS' # NFS Traffic between ESXi and Storage
+cifs_vlan_name: 'Infra-CIFS' # CIFS VLAN
 #
 # lan_state should be set to 'present' to configure the objects
 # In future, this parameter will be used for deleting the configuration
@@ -66,6 +71,11 @@ storage_vlan_list:
     id: '42'
     native: 'no'
     storage_protocol: NFS
+    state: "{{lan_state}}"
+  - name: "{{ cifs_vlan_name }}"
+    id: '50'
+    native: 'no'
+    storage_protocol: CIFS
     state: "{{lan_state}}"
 #
 # The remaining_vlan_list contains all vlans that are not configured on storage,
@@ -94,9 +104,9 @@ remaining_vlan_list:
 # These VLANs must be same or a subset of the vlan_list above
 # In future, these values will be auto-generated
 #
-all_vlans_list: "2,40-43"
+all_vlans_list: "2,40-43,50"
 # storage_vlans_list: for vpc_peer_link and UCS FI trunk ports
-storage_vlans_list: "42"
+storage_vlans_list: "42,50"
 # mgmt_vlans_list: for uplink/management switch trunk port
 mgmt_vlans_list: "41"
 #
