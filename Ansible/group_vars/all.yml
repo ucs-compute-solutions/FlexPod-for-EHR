@@ -1,5 +1,5 @@
 # This is the top-level variable file that will be used for the FlexPod setup. It is setup in this case to have Fibre Channel SAN boot with
-# FC-NVMe, SMB and NFS storage protocols. 
+# FC-NVMe, SMB/CIFS and NFS storage protocols. 
 #
 configure_fc: "yes"
 #
