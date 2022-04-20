@@ -138,6 +138,9 @@ svm_specs:
     - 192.168.20.20
     - 192.168.20.21
   dns_domain_svm: "vmwaresvm.flexpod.com"
+  cifs_server_name: "Infra_SVM_CIFS"     #Name of the CIFS server
+  cifs_admin_user_name: "user@domain"    #Specify the cifs server admin username e.g: user@flexpod.com
+  cifs_admin_password: "password"        #Specify the cifs server admin password
 
 ##################################################################################################################################################
 # Default/Best Practice related information - Change only if required
