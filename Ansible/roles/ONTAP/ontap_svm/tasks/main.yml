@@ -245,7 +245,23 @@
     validate_certs: false
   with_items:
     - "{{svm_specs}}"
-  when:
-    - "('cifs' in item.allowed_protocols)"
+  when: "('cifs' in item.allowed_protocols)"
   tags:
     - ontap_create_cifs_service
+
+# Modify SVM Options
+# Enable automatic node referrals on the infrastructure SVM
+- name: Enable automatic node referrals on the SVM
+  netapp.ontap.na_ontap_command:
+    command: ['vserver', 'cifs', 'options', 'modify', '-vserver', '{{item.svm_name}}', '-is-referral-enabled', 'true']
+    hostname: "{{inventory_hostname}}"
+    username: "{{username}}"
+    password: "{{password}}"
+    privilege: advanced
+    https: true
+    validate_certs: false
+  with_items:
+    - "{{svm_specs}}"
+  when: "('cifs' in item.allowed_protocols)"
+  tags:
+    - ontap_cifs_options_modify
