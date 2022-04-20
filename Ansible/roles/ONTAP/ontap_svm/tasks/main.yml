@@ -8,12 +8,16 @@
   when: item.aggr_name is defined and item.aggr_name != None
   tags:
     - ontap_config_svm
+    - ontap_ls_mirror_volumes
+    - ontap_snapmirror_relationship
 
 # See the aggr list
 - name: See the aggr list
   debug: var=aggr_list
   tags:
     - ontap_config_svm
+    - ontap_ls_mirror_volumes
+    - ontap_snapmirror_relationship
 
 # Create the infrastructure SVM with required protocols
 - name: Create infrastructure SVM with specified protocols enabled
@@ -223,3 +227,25 @@
     validate_certs: false
   tags:
     - ontap_unlock_vsadmin
+
+# Create the CIFS service
+- name: Create the CIFS service
+  netapp.ontap.na_ontap_cifs_server:
+    hostname: "{{inventory_hostname}}"
+    username: "{{username}}"
+    password: "{{password}}"
+    state: present
+    vserver: "{{item.svm_name}}"
+    name: "{{item.cifs_server_name}}"
+    domain: "{{item.dns_domain_svm}}"
+    admin_user_name: "{{item.cifs_admin_user_name}}"
+    admin_password: "{{item.cifs_admin_password}}"
+    service_state: started
+    https: true
+    validate_certs: false
+  with_items:
+    - "{{svm_specs}}"
+  when:
+    - "('cifs' in item.allowed_protocols)"
+  tags:
+    - ontap_create_cifs_service
