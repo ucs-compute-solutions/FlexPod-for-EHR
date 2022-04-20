@@ -98,6 +98,7 @@ svm_specs:
   svm_root_vol: Infra_SVM_root
   allowed_protocols: #provide the values in lower case only, supported options for this solution are nfs, fcp, iscsi, nvme
     - nfs
+    - cifs
     - fcp
     - nvme
   client_match: 192.168.30.0/24
