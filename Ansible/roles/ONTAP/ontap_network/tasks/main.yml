@@ -53,8 +53,8 @@
   tags:
     - ontap_nfs_broadcast_domain
 
-# Create SMB broadcast domain ports with Jumbo frames
-- name: Create SMB broadcast domain ports with Jumbo frames
+# Create CIFS broadcast domain ports with Jumbo frames
+- name: Create CIFS broadcast domain ports with Jumbo frames
   netapp.ontap.na_ontap_broadcast_domain:
     hostname: "{{inventory_hostname}}"
     username: "{{username}}"
@@ -157,8 +157,8 @@
   tags:
     - ontap_vlan_interface
 
-# Create SMB vlans
-- name: Create the SMB vlans
+# Create CIFS vlans
+- name: Create the CIFS vlans
   netapp.ontap.na_ontap_net_vlan:
     hostname: "{{inventory_hostname}}"
     username: "{{username}}"
@@ -222,8 +222,8 @@
   tags:
     - ontap_vlan_interface
 
-# Add the SMB vlans to the correponding broadcast domains
-- name: Adding SMB vlans to the corresponding broadcast domains
+# Add the CIFS vlans to the correponding broadcast domains
+- name: Adding CIFS vlans to the corresponding broadcast domains
   netapp.ontap.na_ontap_broadcast_domain_ports:
     hostname: "{{inventory_hostname}}"
     username: "{{username}}"
