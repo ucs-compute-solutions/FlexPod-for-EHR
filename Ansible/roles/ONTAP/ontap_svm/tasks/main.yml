@@ -246,7 +246,7 @@
   tags:
     - ontap_config_dns_infra
 
-# Create a network interface on the in-band VLAN [SVM Management LIF]
+# Create a network interface on the in-band VLAN [Create SVM Management LIF]
 - name: Create LIF for SVM Management
   netapp.ontap.na_ontap_interface: 
     hostname: "{{inventory_hostname}}" 
