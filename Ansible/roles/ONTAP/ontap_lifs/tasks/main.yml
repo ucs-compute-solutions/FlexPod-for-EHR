@@ -129,3 +129,34 @@
   when: "('nvme' in svm_specs.allowed_protocols)"
   tags:
     - ontap_fc-nvme_lifs
+
+# Create CIFS LIF(s) on Nodes
+- name: Create CIFS LIF(s) on Nodes
+  netapp.ontap.na_ontap_interface: 
+    hostname: "{{inventory_hostname}}" 
+    username: "{{username}}" 
+    password: "{{password}}" 
+    state: present 
+    vserver: "{{svm_specs.svm_name}}" 
+    role: data 
+    protocols: cifs
+    home_node: "{{item.0.node_name}}" 
+    home_port: "{{item.2}}-{{item.1.id}}"
+    address: "{{item.0.cifs_lifs.address}}" 
+    netmask: "{{item.0.cifs_lifs.netmask}}" 
+    interface_name: "{{item.0.cifs_lifs.name}}" 
+    admin_status: up 
+    failover_policy: broadcast-domain-wide 
+    firewall_policy: data 
+    is_auto_revert: true 
+    https: true 
+    validate_certs: false
+  with_nested:
+    - "{{ ha_pairs | map(attribute='node_specs') | flatten }}"
+    - "{{storage_vlan_list}}"
+    - "{{ifgrp_name}}"
+  when: 
+    - "('cifs' in svm_specs.allowed_protocols)"
+    - item.1.storage_protocol == "CIFS"
+  tags:
+    - ontap_cifs_lifs
