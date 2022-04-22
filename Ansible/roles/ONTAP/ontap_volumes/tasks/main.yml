@@ -179,3 +179,21 @@
     - "{{svm_specs}}"
   tags:
     - ontap_update_ls_mirrors
+
+# Create CIFS Shares
+- name: Create CIFS Shares
+  netapp.ontap.na_ontap_cifs: 
+    state: present 
+    vserver: "{{svm_specs.svm_name}}" 
+    share_name: "{{item.share_name}}" 
+    path: /{{item.residing_vol}}
+    share_properties: "{{item.share_properties}}"
+    hostname: "{{inventory_hostname}}" 
+    username: "{{username}}" 
+    password: "{{password}}"
+    https: true 
+    validate_certs: false
+  with_items:
+    - "{{svm_specs.cifs_shares}}"
+  tags:
+    - ontap_cifs_shares
