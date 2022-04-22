@@ -19,7 +19,7 @@
   with_items:
     - "{{svm_specs}}"
   tags:
-    - ontap_export_policy_rule
+    - ontap_nfs_export_policy_rule
 
 # Create the CIFS Export policy
 - name: Create CIFS export policy
