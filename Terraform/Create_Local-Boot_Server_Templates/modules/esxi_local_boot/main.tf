@@ -961,7 +961,7 @@ resource "intersight_vnic_fc_adapter_policy" "fc_adapter_policy" {
     mode = "MSIx"
   }
 
-  io_throttle_count = 1024
+  io_throttle_count = 512
   lun_count         = 1024
   lun_queue_depth   = 20
 
