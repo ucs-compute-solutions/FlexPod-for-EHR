@@ -53,6 +53,25 @@
   tags:
     - ontap_nfs_broadcast_domain
 
+# Create CIFS broadcast domain ports with Jumbo frames
+- name: Create CIFS broadcast domain ports with Jumbo frames
+  netapp.ontap.na_ontap_broadcast_domain:
+    hostname: "{{inventory_hostname}}"
+    username: "{{username}}"
+    password: "{{password}}"
+    state: present
+    broadcast_domain: "{{item.name}}"
+    mtu: 9000
+    https: true
+    validate_certs: false
+  with_items:
+    - "{{storage_vlan_list}}"
+  when:
+    - "('cifs' in svm_specs.allowed_protocols)"
+    - item.storage_protocol == "CIFS"
+  tags:
+    - ontap_cifs_broadcast_domain
+
 # Create ifgroups for the 10G interfaces
 - name: Create multimode/ LACP interface groups and add data ports
   netapp.ontap.na_ontap_net_ifgrp:
@@ -138,6 +157,29 @@
   tags:
     - ontap_vlan_interface
 
+# Create CIFS vlans
+- name: Create the CIFS vlans
+  netapp.ontap.na_ontap_net_vlan:
+    hostname: "{{inventory_hostname}}"
+    username: "{{username}}"
+    password: "{{password}}"
+    state: "{{item.1.state}}"
+    parent_interface: "{{item.2}}"
+    vlanid: "{{item.1.id}}"
+    node: "{{item.0.node_name}}"
+    https: true
+    validate_certs: false
+  with_nested:
+    - "{{ ha_pairs | map(attribute='node_specs') | flatten }}"
+    - "{{storage_vlan_list}}"
+    - "{{ifgrp_name}}"
+  failed_when: item.1.state != "present"
+  when:
+    - "('cifs' in svm_specs.allowed_protocols)"
+    - item.1.storage_protocol == "CIFS"
+  tags:
+    - ontap_vlan_interface
+
 # Add the iSCSI vlans to the correponding broadcast domains
 - name: Adding iSCSI-A, iSCSI-B vlans to the corresponding broadcast domains
   netapp.ontap.na_ontap_broadcast_domain_ports:
@@ -177,6 +219,27 @@
   when:
     - "('nfs' in svm_specs.allowed_protocols)"
     - item.1.storage_protocol == "NFS"
+  tags:
+    - ontap_vlan_interface
+
+# Add the CIFS vlans to the correponding broadcast domains
+- name: Adding CIFS vlans to the corresponding broadcast domains
+  netapp.ontap.na_ontap_broadcast_domain_ports:
+    hostname: "{{inventory_hostname}}"
+    username: "{{username}}"
+    password: "{{password}}"
+    state: present
+    broadcast_domain: "{{item.1.name}}"
+    ports: "{{item.0.node_name}}:{{item.2}}-{{item.1.id}}"
+    https: true
+    validate_certs: false
+  with_nested:
+    - "{{ ha_pairs | map(attribute='node_specs') | flatten }}"
+    - "{{storage_vlan_list}}"
+    - "{{ifgrp_name}}"
+  when:
+    - "('cifs' in svm_specs.allowed_protocols)"
+    - item.1.storage_protocol == "CIFS"
   tags:
     - ontap_vlan_interface
 

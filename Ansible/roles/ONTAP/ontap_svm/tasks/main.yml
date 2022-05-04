@@ -8,12 +8,16 @@
   when: item.aggr_name is defined and item.aggr_name != None
   tags:
     - ontap_config_svm
+    - ontap_ls_mirror_volumes
+    - ontap_snapmirror_relationship
 
 # See the aggr list
 - name: See the aggr list
   debug: var=aggr_list
   tags:
     - ontap_config_svm
+    - ontap_ls_mirror_volumes
+    - ontap_snapmirror_relationship
 
 # Create the infrastructure SVM with required protocols
 - name: Create infrastructure SVM with specified protocols enabled
@@ -223,3 +227,102 @@
     validate_certs: false
   tags:
     - ontap_unlock_vsadmin
+
+# Creating the CIFS service on the infrastructure SVM
+# Configure DNS for the SVM
+- name: Configure DNS for the infrastucture SVM
+  netapp.ontap.na_ontap_dns:
+    state: present
+    vserver: "{{item.svm_name}}"
+    nameservers: "{{item.dns_server_svm}}"
+    domains: "{{item.dns_domain_svm}}"
+    hostname: "{{inventory_hostname}}"
+    username: "{{username}}"
+    password: "{{password}}"
+    https: true
+    validate_certs: false
+  with_items:
+    - "{{svm_specs}}"
+  tags:
+    - ontap_config_dns_infra
+
+# Create a network interface on the in-band VLAN [Create SVM Management LIF]
+- name: Create LIF for SVM Management
+  netapp.ontap.na_ontap_interface: 
+    hostname: "{{inventory_hostname}}" 
+    username: "{{username}}" 
+    password: "{{password}}" 
+    state: present 
+    vserver: "{{svm_specs.svm_name}}" 
+    role: data 
+    protocols: none 
+    home_node: "{{svm_specs.svm_mgmt_lif.home_node}}" 
+    home_port: "{{ifgrp_name}}-{{item.id}}"
+    address: "{{svm_specs.svm_mgmt_lif.address}}" 
+    netmask: "{{svm_specs.svm_mgmt_lif.netmask}}" 
+    interface_name: "{{svm_specs.svm_mgmt_lif.lif_name}}" 
+    admin_status: up 
+    failover_policy: broadcast-domain-wide 
+    firewall_policy: mgmt 
+    is_auto_revert: true 
+    https: true 
+    validate_certs: false
+  with_items:
+    - "{{ ib_mgmt_vlan_list }}"
+  tags:
+    - ontap_svm_mgmt_lif
+
+# Create a default route in infra SVM
+- name: Create a default route in infra SVM
+  netapp.ontap.na_ontap_net_routes:
+    state: present
+    vserver: "{{svm_specs.svm_name}}"
+    destination: "0.0.0.0/0"
+    gateway: "{{item.gateway}}"
+    hostname: "{{inventory_hostname}}"
+    username: "{{username}}"
+    password: "{{password}}"
+    https: true
+    validate_certs: false
+  with_items:
+    - "{{svm_specs.svm_mgmt_lif}}"
+  tags:
+    - ontap_svm_default_route
+    
+# Create the CIFS service
+- name: Create the CIFS service
+  netapp.ontap.na_ontap_cifs_server:
+    hostname: "{{inventory_hostname}}"
+    username: "{{username}}"
+    password: "{{password}}"
+    state: present
+    vserver: "{{item.svm_name}}"
+    name: "{{item.cifs_server_name}}"
+    domain: "{{item.dns_domain_svm}}"
+    admin_user_name: "{{item.cifs_admin_user_name}}"
+    admin_password: "{{item.cifs_admin_password}}"
+    service_state: started
+    https: true
+    validate_certs: false
+  with_items:
+    - "{{svm_specs}}"
+  when: "('cifs' in item.allowed_protocols)"
+  tags:
+    - ontap_create_cifs_service
+
+# Modify SVM Options
+# Enable automatic node referrals on the infrastructure SVM
+- name: Enable automatic node referrals on the SVM
+  netapp.ontap.na_ontap_command:
+    command: ['vserver', 'cifs', 'options', 'modify', '-vserver', '{{item.svm_name}}', '-is-referral-enabled', 'true']
+    hostname: "{{inventory_hostname}}"
+    username: "{{username}}"
+    password: "{{password}}"
+    privilege: advanced
+    https: true
+    validate_certs: false
+  with_items:
+    - "{{svm_specs}}"
+  when: "('cifs' in item.allowed_protocols)"
+  tags:
+    - ontap_cifs_options_modify

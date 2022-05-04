@@ -1,6 +1,6 @@
 ---
-# Create the Export policy rule
-- name: Create the export policy rules
+# Create the NFS Export policy rule
+- name: Create the NFS export policy rules
   netapp.ontap.na_ontap_export_policy_rule: 
     state: present 
     vserver: "{{item.svm_name}}" 
@@ -19,7 +19,45 @@
   with_items:
     - "{{svm_specs}}"
   tags:
-    - ontap_export_policy_rule
+    - ontap_nfs_export_policy_rule
+
+# Create the CIFS Export policy
+- name: Create CIFS export policy
+  netapp.ontap.na_ontap_export_policy: 
+    state: present 
+    vserver: "{{item.svm_name}}" 
+    name: "{{item.cifs_export_policy.policy_name}}" 
+    hostname: "{{inventory_hostname}}" 
+    username: "{{username}}" 
+    password: "{{password}}"
+    https: true 
+    validate_certs: false
+  with_items:
+    - "{{svm_specs}}"
+  when: "('cifs' in svm_specs.allowed_protocols)"
+  tags:
+    - ontap_cifs_export_policy
+
+# Create the CIFS Export policy rule
+- name: Create CIFS export policy rules
+  netapp.ontap.na_ontap_export_policy_rule: 
+    state: present 
+    vserver: "{{svm_specs.svm_name}}" 
+    name: "{{item.policy_name}}" 
+    client_match: "{{item.client_match}}"
+    protocol: cifs
+    ro_rule: "{{item.ro_rule}}"
+    rw_rule: "{{item.rw_rule}}"
+    hostname: "{{inventory_hostname}}" 
+    username: "{{username}}" 
+    password: "{{password}}"
+    https: true 
+    validate_certs: false
+  with_items:
+    - "{{svm_specs.cifs_export_policy}}"
+  when: "('cifs' in svm_specs.allowed_protocols)"
+  tags:
+    - ontap_cifs_export_policy_rule
 
 # Create FlexVols for datastores
 - name: Create FlexVols for datastores
@@ -141,3 +179,21 @@
     - "{{svm_specs}}"
   tags:
     - ontap_update_ls_mirrors
+
+# Create CIFS Shares
+- name: Create CIFS Shares
+  netapp.ontap.na_ontap_cifs: 
+    state: present 
+    vserver: "{{svm_specs.svm_name}}" 
+    share_name: "{{item.share_name}}" 
+    path: /{{item.residing_vol}}
+    share_properties: "{{item.share_properties}}"
+    hostname: "{{inventory_hostname}}" 
+    username: "{{username}}" 
+    password: "{{password}}"
+    https: true 
+    validate_certs: false
+  with_items:
+    - "{{svm_specs.cifs_shares}}"
+  tags:
+    - ontap_cifs_shares
