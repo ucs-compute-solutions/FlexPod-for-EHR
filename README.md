@@ -27,7 +27,7 @@ The overall flow of automating the installation using these tools is shown in th
 
 ## External Repositories 
 
-Repositories for installing ONTAP Management Tools are maintained in the following repositories;
+Repositories for installing NetApp Management Tools are maintained in the following repositories;
 
 - [ONTAP Tools for VMware vSphere](https://github.com/NetApp-Automation/ONTAP-Tools-for-VMware-vSphere)
 - [NetApp AIQUM](https://github.com/NetApp-Automation/NetApp-AIQUM) 
