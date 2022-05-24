@@ -87,36 +87,36 @@ san_boot_target_3_wwpn = "20:17:d0:39:ea:18:01:47"
 san_boot_target_4_wwpn = "20:18:d0:39:ea:18:01:47"
 
 
-#Provide logical names to identify during attach  # !! Not sure we need these.
+# Provide logical names to identify during attach  # !! Not sure we need these.
 nvme_device_1_name = "nvme-svm-fc-lif01a"
 nvme_device_2_name = "nvme-svm-fc-lif01b"
 nvme_device_3_name = "nvme-svm-fc-lif02a"
 nvme_device_4_name = "nvme-svm-fc-lif02b"
-#Provide nvme Target WWPN Names
+# Provide nvme Target WWPN Names
 nvme_target_1_wwpn = "20:15:d0:39:ea:18:01:47"
 nvme_target_2_wwpn = "20:16:d0:39:ea:18:01:47"
 nvme_target_3_wwpn = "20:17:d0:39:ea:18:01:47"
 nvme_target_4_wwpn = "20:18:d0:39:ea:18:01:47"
 
-#Ethernet QoS Policy for management vNIC
+# Ethernet QoS Policy for management vNIC
 mtu = 9000
 
 
-#Network Group Policy - VLAN details of vNICs assigned to virtual switches for Management and NFS VLANs
+# Network Group Policy - VLAN details of vNICs assigned to virtual switches for Management and NFS VLANs
 native_vlan_for_mgmt_vnic   = 2
 allowed_vlans_for_mgmt_vnic = "2,40-44"
 
 
-#Network Group Policy - VLANs details of vNIC assigned to VDS for  vMotion and traffic VLANs
+# Network Group Policy - VLANs details of vNIC assigned to VDS for vMotion, CIFs and traffic VLANs
 native_vlan_for_vnic_assigned_for_VDS   = 2
-allowed_vlans_for_vnic_assigned_for_VDS = "2,40-44"
+allowed_vlans_for_vnic_assigned_for_VDS = "2,40-45"
 
 
-#Fibre Channel Network policy: SAN-A
+# Fibre Channel Network policy: SAN-A
 fcoe_vlan_id_SAN-A = 0
 vsan_id_SAN-A      = 400
 
-#Fibre Channel Network policy: SAN-B
+# Fibre Channel Network policy: SAN-B
 fcoe_vlan_id_SAN-B = 0
 vsan_id_SAN-B      = 401
 

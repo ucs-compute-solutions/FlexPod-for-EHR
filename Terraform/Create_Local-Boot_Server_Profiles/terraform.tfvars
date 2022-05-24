@@ -91,9 +91,9 @@ native_vlan_for_mgmt_vnic   = 2
 allowed_vlans_for_mgmt_vnic = "2,40-44"
 
 
-#Network Group Policy - VLANs details of vNIC assigned to VDS for  vMotion and traffic VLANs
+#Network Group Policy - VLANs details of vNIC assigned to VDS for vMotion, CIFs and traffic VLANs
 native_vlan_for_vnic_assigned_for_VDS   = 2
-allowed_vlans_for_vnic_assigned_for_VDS = "2,40-44"
+allowed_vlans_for_vnic_assigned_for_VDS = "2,40-45"
 
 
 #Fibre Channel Network policy: SAN-A

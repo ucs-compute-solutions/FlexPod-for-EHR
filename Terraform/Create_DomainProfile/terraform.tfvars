@@ -100,6 +100,7 @@ vlan_details_for_fabric_interconnects = {
   vm-vlan      = 44
   vmotion-vlan = 43
   nfs          = 42
+  cifs-vlan    = 45
 
 }
 
