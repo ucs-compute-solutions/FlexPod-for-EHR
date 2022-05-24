@@ -148,8 +148,8 @@ svm_specs:
   cifs_admin_password: "password"        #Specify the cifs server admin password
   cifs_export_policy: {policy_name: cifs, client_match: flexpod.com, ro_rule: ["krb5i", "krb5p"], rw_rule: ["krb5i", "krb5p"]}
   cifs_shares:
-    - {share_name: cifs_share_1, residing_vol: infra_datastore_01, share_properties: ["oplocks", "browsable", "continuously-available", "showsnapshot"]}
-    - {share_name: cifs_share_2, residing_vol: infra_datastore_02, share_properties: ["oplocks", "browsable", "continuously-available", "showsnapshot"]}
+    - {share_name: cifs_share_1, residing_vol: flexgroup_vol_01, share_properties: ["oplocks", "browsable", "continuously-available", "showsnapshot"]}
+    - {share_name: cifs_share_2, residing_vol: flexgroup_vol_02, share_properties: ["oplocks", "browsable", "continuously-available", "showsnapshot"]}
 
 ##################################################################################################################################################
 # Default/Best Practice related information - Change only if required
