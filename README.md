@@ -2,7 +2,7 @@
 
 This repository for FlexPod contains Ansible playbooks and Terraform scripts to configure Cisco Nexus, Cisco UCS, Cisco MDS, NetApp ONTAP, VMware ESXi and VMware vCenter. This repository can be used for setting up Cisco devices, NetApp ONTAP as well as VMware ESXi and vCenter as covered in the following Cisco Validated Design (CVD): 
 
-<< Link will be added when CVD is published >>
+[FlexPod for Epic EHR](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/UCS_CVDs/flexpod_xseries_vmw_epic.html)
 
 The CVD lays out the complete process for configuring the FlexPod using Ansible and Terraform. These scripts are intended to save time in setting up a working FlexPod.
 
