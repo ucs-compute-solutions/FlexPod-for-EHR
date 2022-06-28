@@ -1,4 +1,4 @@
-### Automated ONTAP storage deployment using Ansible for FlexPod for EHR
+### Automated ONTAP storage deployment using Ansible for FlexPod for Epic EHR
  
 This repository contains Ansible roles and playbooks for an end-to-end ONTAP storage deployment for VMware vSphere 7.0 U3 in a FlexPod Datacenter.
 
