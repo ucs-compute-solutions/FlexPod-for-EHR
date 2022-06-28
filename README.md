@@ -30,5 +30,5 @@ The overall flow of automating the installation using these tools is shown in th
 Repositories for installing NetApp Management Tools are maintained in the following repositories;
 
 - [ONTAP Tools for VMware vSphere](https://github.com/NetApp-Automation/ONTAP-Tools-for-VMware-vSphere)
-- [NetApp AIQUM](https://github.com/NetApp-Automation/NetApp-AIQUM) 
+- [Active IQ Unified Manager](https://github.com/NetApp-Automation/NetApp-AIQUM) 
 - [SnapCenter Plug-in for VMware vSphere](https://github.com/NetApp-Automation/SnapCenter-Plug-in-for-VMware-vSphere)
