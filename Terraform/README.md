@@ -1,4 +1,4 @@
-# FlexPod Converged Infrastructure setup for Epic EHR Terraform automation scripts  
+# FlexPod UCS configuration setup in Intersight Managed Mode (IMM) for Epic EHR using Terraform automation scripts  
 
 ## Automated Solution Deployment
 
@@ -7,10 +7,10 @@
 - Terraform 0.14.0 or later must be installed
 - Access to the Terraform registry via the internet must be available
 
-Clone the "!!!! Insert CVD Link Here !!!!"  repository to create a local copy of the scripts to work with.
+Clone the "FlexPod-for-EHR"  repository to create a local copy of the scripts to work with.
 
 
-`!!!! Insert CVD Link Here !!!!`
+`https://github.com/ucs-compute-solutions/FlexPod-for-EHR`
 
 
 ### Generate API keys
