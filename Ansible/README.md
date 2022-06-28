@@ -14,7 +14,7 @@ Because a number of manual tasks need to be executed between running the Ansible
 
 The steps for setting up a FlexPod with Fibre Channel boot and FC-NVMe and NFS storage protocols are:
 
-- Create a directory and clone the repository from Github with "git clone GIT_REPO_NAME".
+- Create a directory and clone the repository from GitHub with "git clone https://github.com/ucs-compute-solutions/FlexPod-for-EHR".
 - Fill in the variable files according to the CVD.
 - Follow the manual steps in the CVD to set up the Nexus switches on the network and ssh into each switch.
 
@@ -22,13 +22,13 @@ The steps for setting up a FlexPod with Fibre Channel boot and FC-NVMe and NFS s
 - Execute the Nexus playbook with "`ansible-playbook ./Setup_Nexus.yml -i inventory`" to setup the Nexus switches.
 - Follow the manual steps in the CVD to add timezone information to the Nexus switches.
 
-### Initial NetApp Storage configuration 
+### Initial NetApp Storage configuration (NetApp Storage Configuration part 1)
 - Follow the manual steps in the CVD to get the NetApp ONTAP storage cluster on the network.
 - Execute the NetApp ONTAP storage playbook with "`ansible-playbook -i inventory Setup_ONTAP.yml -t ontap_config_part_1`".
 - Query the fibre channel and FC-NVMe LIFs WWPNs and add to the "group_vars/all.yml" file.
 
 ### UCS X-Series server configuration 
-Configuration of the UCS X-Series servers can be completed utilizing the Terraform scripts included in this repository, or by following the manual steps in the CVD.
+Configuration of the UCS X-Series servers can be completed by utilizing the Terraform scripts included in this repository, or by following the manual steps in the CVD.
 
 ### Configurre MDS Switches  
 - Query the ESXi host initiator WWPNs for both fibre channel and FC-NVMe interfaces and add to the "group_vars/all.yml" file.
@@ -55,7 +55,7 @@ Configuration of the UCS X-Series servers can be completed utilizing the Terrafo
 ### Finalize installation
 - Follow the manual steps in the CVD to finish setting up ONTAP tools and the rest of the FlexPod management cluster, including an optional Ansible setup of NetApp AIQUM and SnapCenter.
 
-Repositories for installing ONTAP Management Tools are maintained in the following repositories;
+Repositories for automated installation of ONTAP Management Tools are maintained in the following repositories;
 
 - [ONTAP Tools for VMware vSphere](https://github.com/NetApp-Automation/ONTAP-Tools-for-VMware-vSphere)
 - [NetApp AIQUM](https://github.com/NetApp-Automation/NetApp-AIQUM) 
