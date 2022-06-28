@@ -30,7 +30,7 @@ The steps for setting up a FlexPod with Fibre Channel boot and FC-NVMe and NFS s
 ### UCS X-Series server configuration 
 Configuration of the UCS X-Series servers can be completed by utilizing the Terraform scripts included in this repository, or by following the manual steps in the CVD.
 
-### Configurre MDS Switches  
+### Configure MDS Switches  
 - Query the ESXi host initiator WWPNs for both fibre channel and FC-NVMe interfaces and add to the "group_vars/all.yml" file.
 - Follow the manual steps in the CVD to set up the MDS switches on the network and ssh into each switch.
 - Execute the MDS playbook with "`ansible-playbook ./Setup_MDS.yml -i inventory"`.
