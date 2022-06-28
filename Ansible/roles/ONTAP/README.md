@@ -1,6 +1,6 @@
-### Automated ONTAP storage deployment using Ansible for FlexPod Datacenter with VMware vSphere 7.0 U2 and NetApp ONTAP 9.8 and 9.9
+### Automated ONTAP storage deployment using Ansible for FlexPod for EHR
  
-This repository contains Ansible roles and playbooks for an end-to-end ONTAP storage deployment for VMware vSphere 7.0 U2 in a FlexPod Datacenter.
+This repository contains Ansible roles and playbooks for an end-to-end ONTAP storage deployment for VMware vSphere 7.0 U3 in a FlexPod Datacenter.
 
 The ONTAP deployment automation is based on the following roles:
 
@@ -13,15 +13,15 @@ The ONTAP deployment automation is based on the following roles:
 	ontap_nvme
 	ontap_finalize_setup
 
-These roles are developed as per the best practices prescribed in the Cisco Validated Design (CVD) "FlexPod Datacenter with Cisco UCS M6, VMware 7.0 U2 and NetApp ONTAP 9.9".
+These roles are developed as per the best practices prescribed in the Cisco Validated Design (CVD) "FlexPod for Epic EHR with Cisco Intersight and NetApp ONTAP 9.10".
 
 ### Environment Validated
 
 As the automation solution is specifically build for the above mentioned CVD, the current roles and playbooks support the following components:
 
-	Storage Operating System: ONTAP 9.8 and 9.9
+	Storage Operating System: ONTAP 9.9 and 9.10
 	Storage Protocols: NFS, FCP, and NVMe
-	VMware vSphere: 7.0 U2
+	VMware vSphere: 7.0 U3
 
 ### Prerequisite
 
@@ -31,7 +31,7 @@ NOTE: Aggregate creation is part of the automation.
 2. The user should have an Ansible Control machine that has network reachability to the ONTAP storage system and internet access to pull this repository from GitHub.
 Refer https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html for guidance on setting up an Ansible Control machine.
 
-3. The Ansible control machine should have the NetApp and VMware dependency libraries and collections installed
+3. The Ansible control machine should have the NetApp dependency libraries and collections installed
 
 ```
 pip3 install netapp-lib
@@ -43,7 +43,7 @@ ansible-galaxy collection install netapp.ontap
 1. From the Ansible Control machine Download a ZIP version of this repository or clone it using the below command:
 	
 ```
-git clone https://github.com/ucs-compute-solutions/FlexPod-UCSM-M6.git
+git clone https://github.com/ucs-compute-solutions/FlexPod-for-EHR.git
 ```
 
 2. There is one variable file under the vars folder 'ontap_main.yml' for setup of ONTAP, that needs to be filled out with environment specific parameters prior to executing the playbook.
