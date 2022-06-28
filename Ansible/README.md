@@ -14,7 +14,7 @@ Because a number of manual tasks need to be executed between running the Ansible
 
 The steps for setting up a FlexPod with Fibre Channel boot and FC-NVMe and NFS storage protocols are:
 
-- Create a directory and clone the repository from GitHub with "git clone https://github.com/ucs-compute-solutions/FlexPod-for-EHR".
+- Create a directory and clone the repository from GitHub with "git clone https://github.com/ucs-compute-solutions/FlexPod-for-EHR.git".
 - Fill in the variable files according to the CVD.
 - Follow the manual steps in the CVD to set up the Nexus switches on the network and ssh into each switch.
 
