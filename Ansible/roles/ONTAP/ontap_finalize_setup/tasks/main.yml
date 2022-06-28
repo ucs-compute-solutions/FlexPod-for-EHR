@@ -37,6 +37,6 @@
     password: "{{password}}"
     https: true
     validate_certs: false
-    command: ['autosupport', 'invoke', '-node', '*', '-type', 'all', '-message', '"ONTAP Setup Completed for FlexPod Datacenter with VMware vSphere 7.0U2 and NetApp ONTAP."']
+    command: ['autosupport', 'invoke', '-node', '*', '-type', 'all', '-message', '"ONTAP Setup Completed for FlexPod for Epic EHR with NetApp ONTAP 9.10"']
   tags:
     - ontap_invoke_autosupport
