@@ -22,7 +22,7 @@ The steps for setting up a FlexPod with Fibre Channel boot and FC-NVMe and NFS s
 - Execute the Nexus playbook with "`ansible-playbook ./Setup_Nexus.yml -i inventory`" to setup the Nexus switches.
 - Follow the manual steps in the CVD to add timezone information to the Nexus switches.
 
-### Initial NetApp Storage configuration (NetApp Storage Configuration part 1)
+### Initial NetApp ONTAP Storage configuration (NetApp ONTAP Storage Configuration part 1)
 - Follow the manual steps in the CVD to get the NetApp ONTAP storage cluster on the network.
 - Execute the NetApp ONTAP storage playbook with "`ansible-playbook -i inventory Setup_ONTAP.yml -t ontap_config_part_1`".
 - Query the fibre channel and FC-NVMe LIFs WWPNs and add to the "group_vars/all.yml" file.
@@ -55,7 +55,7 @@ Configuration of the UCS X-Series servers can be completed by utilizing the Terr
 ### Finalize installation
 - Follow the manual steps in the CVD to finish setting up ONTAP tools and the rest of the FlexPod management cluster, including an optional Ansible setup of NetApp AIQUM and SnapCenter.
 
-Repositories for automated installation of ONTAP Management Tools are maintained in the following repositories;
+Repositories for automated installation of NetApp Management Tools are maintained in the following repositories:
 
 - [ONTAP Tools for VMware vSphere](https://github.com/NetApp-Automation/ONTAP-Tools-for-VMware-vSphere)
 - [NetApp AIQUM](https://github.com/NetApp-Automation/NetApp-AIQUM) 
